@@ -105,6 +105,8 @@ def scrape_site(scraper_type):
 def main():
     scrape_site(scraper_type.ScraperType.oxford("https://www.oxfordstore.pe/bicicletas.html"))
     scrape_site(scraper_type.ScraperType.monark("https://www.monark.com.pe/categoria-producto/bicicletas/"))
+    scrape_site(scraper_type.ScraperType.specialized("https://www.specializedperu.com/catalog/category/view/s/bicicletas/id/467/"))
+    scrape_site(scraper_type.ScraperType.specialized("https://www.specializedperu.com/preventa.html"))
     
 if __name__ == "__main__":
     main()
