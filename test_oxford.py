@@ -120,7 +120,7 @@ def test_get_product_regular_price_glt_12_bali_verde(oxford_scraper, product_glt
 def test_get_product_status_label_glt_12_bali_verde(oxford_scraper, product_glt_12_bali_verde):
     assert oxford_scraper.get_product_status_label(product_glt_12_bali_verde) == "Próximamente"
 
-def test_get_product_discount_label_glt_1_bali_verde(oxford_scraper, product_glt_12_bali_verde):
+def test_get_product_discount_label_glt_12_bali_verde(oxford_scraper, product_glt_12_bali_verde):
     assert oxford_scraper.get_product_discount_label(product_glt_12_bali_verde) == ""
 
 def test_get_product_add_to_cart_label_glt_12_bali_verde(oxford_scraper, product_glt_12_bali_verde):

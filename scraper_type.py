@@ -50,5 +50,21 @@ class ScraperType:
         scraper_type.xpath_product_add_to_cart_label = './/*[contains(@class, "comprar")]/text()'
         return scraper_type
 
+    @classmethod
+    def specialized(cls, base_url):
+        scraper_type = cls(name = "specialized", base_url = base_url)
+        scraper_type.xpath_product_element_list = '//*[contains(@class, "item product product-item")]'
+        
+        scraper_type.xpath_next_page_url = ''
+        scraper_type.xpath_product_name = './/*[contains(@class, "product name product-item-name text-center")]/a/text()'
+        scraper_type.xpath_product_link = './/*[contains(@class, "product name product-item-name text-center")]/a/@href'
+        scraper_type.xpath_product_image_link = './/*[contains(@class, "product-image-photo")]/@src'
 
+        scraper_type.xpath_product_status_label = ''  
+        scraper_type.xpath_product_old_price = ''
+        scraper_type.xpath_product_special_price = ''
+        scraper_type.xpath_product_regular_price = './/*[contains(@class, "price-wrapper price-including-tax")]/span/text()'
+        scraper_type.xpath_product_discount_label = ''
+        scraper_type.xpath_product_add_to_cart_label = ''
+        return scraper_type
 

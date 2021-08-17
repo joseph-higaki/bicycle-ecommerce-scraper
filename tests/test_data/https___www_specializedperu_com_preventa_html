@@ -1,0 +1,2099 @@
+<!doctype html>
+<html lang="es">
+    <head >
+        <script>
+    var BASE_URL = 'https://www.specializedperu.com/';
+    var require = {
+        "baseUrl": "https://www.specializedperu.com/pub/static/frontend/Meigee/coccinelle/es_ES"
+    };
+</script>
+        <meta charset="utf-8"/><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"83cdf89c08",applicationID:"289466540"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var i=e[n]={exports:{}};t[n][0].call(i.exports,function(e){var i=t[n][1][e];return r(i||e)},i,i.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(t,e,n){function r(){}function i(t,e,n){return function(){return o(t,[u.now()].concat(f(arguments)),e?null:this,n),e?void 0:this}}var o=t("handle"),a=t(8),f=t(9),c=t("ee").get("tracer"),u=t("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(t,e){s[e]=i(p+e,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),e.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(t,e){var n={},r=this,i="function"==typeof e;return o(l+"tracer",[u.now(),t,n],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return e.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],n),t}finally{c.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){m[e]=i(l+e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),o("err",[t,u.now(),!1,e])}},{}],2:[function(t,e,n){function r(t){if(NREUM.init){for(var e=NREUM.init,n=t.split("."),r=0;r<n.length-1;r++)if(e=e[n[r]],"object"!=typeof e)return;return e=e[n[n.length-1]]}}e.exports={getConfiguration:r}},{}],3:[function(t,e,n){function r(){return f.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,f=t(10);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=i},{}],4:[function(t,e,n){function r(t){return!(!t||!t.protocol||"file:"===t.protocol)}e.exports=r},{}],5:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?d("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&d("timing",["fcp",Math.floor(t.startTime)])})}function i(t,e){var n=t.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(t){t.getEntries().forEach(function(t){t.hadRecentInput||d("cls",[t])})}function a(t){if(t instanceof m&&!g){var e=Math.round(t.timeStamp),n={type:t.type};e<=p.now()?n.fid=p.now()-e:e>p.offset&&e<=Date.now()?(e-=p.offset,n.fid=p.now()-e):e=p.now(),g=!0,d("timing",["fi",e,n])}}function f(t){"hidden"===t&&d("pageHide",[p.now()])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var c,u,s,d=t("handle"),p=t("loader"),l=t(7),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){c=new PerformanceObserver(r);try{c.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,h=["click","keydown","mousedown","pointerdown","touchstart"];h.forEach(function(t){document.addEventListener(t,a,!1)})}l(f)}},{}],6:[function(t,e,n){function r(t,e){if(!i)return!1;if(t!==i)return!1;if(!e)return!0;if(!o)return!1;for(var n=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}e.exports={agent:i,version:o,match:r}},{}],7:[function(t,e,n){function r(t){function e(){t(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,e,!1)}e.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],8:[function(t,e,n){function r(t,e){var n=[],r="",o=0;for(r in t)i.call(t,r)&&(n[o]=e(r,t[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],9:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,i=n-e||0,o=Array(i<0?0:i);++r<i;)o[r]=t[e+r];return o}e.exports=r},{}],10:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function i(t){function e(t){return t&&t instanceof r?t:t?u(t,c,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){t&&a&&t(n,r,i);for(var f=e(i),c=v(n),u=c.length,s=0;s<u;s++)c[s].apply(f,r);var p=d[w[n]];return p&&p.push([b,n,r,f]),f}}function o(t,e){y[t]=v(t).concat(e)}function m(t,e){var n=y[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function v(t){return y[t]||[]}function g(t){return p[t]=p[t]||i(n)}function h(t,e){l.aborted||s(t,function(t,n){e=e||"feature",w[n]=e,e in d||(d[e]=[])})}var y={},w={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:e,buffer:h,abort:f,aborted:!1};return b}function o(t){return u(t,c,a)}function a(){return new r}function f(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var c="nr@context",u=t("gos"),s=t(8),d={},p={},l=e.exports=i();e.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(i.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return t[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){i.buffer([t],r),i.emit(t,e,n)}var i=t("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,o,function(){return i++})}var i=1,o="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!R++){var t=M.info=NREUM.info,e=v.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return u.abort();c(E,function(e,n){t[e]||(t[e]=n)});var n=a();f("mark",["onload",n+M.offset],null,"api"),f("timing",["load",n]);var r=v.createElement("script");0===t.agent.indexOf("http://")||0===t.agent.indexOf("https://")?r.src=t.agent:r.src=l+"://"+t.agent,e.parentNode.insertBefore(r,e)}}function i(){"complete"===v.readyState&&o()}function o(){f("mark",["domContent",a()+M.offset],null,"api")}var a=t(3),f=t("handle"),c=t(8),u=t("ee"),s=t(6),d=t(4),p=t(2),l=p.getConfiguration("ssl")===!1?"http":"https",m=window,v=m.document,g="addEventListener",h="attachEvent",y=m.XMLHttpRequest,w=y&&y.prototype,b=!d(m.location);NREUM.o={ST:setTimeout,SI:m.setImmediate,CT:clearTimeout,XHR:y,REQ:m.Request,EV:m.Event,PR:m.Promise,MO:m.MutationObserver};var x=""+location,E={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1210.min.js"},O=y&&w&&w[g]&&!/CriOS/.test(navigator.userAgent),M=e.exports={offset:a.getLastTimestamp(),now:a,origin:x,features:{},xhrWrappable:O,userAgent:s,disabled:b};if(!b){t(1),t(5),v[g]?(v[g]("DOMContentLoaded",o,!1),m[g]("load",r,!1)):(v[h]("onreadystatechange",i),m[h]("onload",r)),f("mark",["firstbyte",a.getLastTimestamp()],null,"api");var R=0}},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,c,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,c],s],t)}f(n+"start",[o,a,c],s,u);try{return p=e.apply(a,o)}catch(m){throw f(n+"err",[o,a,m],s,u),m}finally{f(n+"end",[o,a,p],s,u)}}return a(e)?e:(n||(n=""),nrWrapper[p]=e,o(e,nrWrapper,t),nrWrapper)}function r(t,e,r,i,o){r||(r="");var f,c,u,s="-"===r.charAt(0);for(u=0;u<e.length;u++)c=e[u],f=t[c],a(f)||(t[c]=n(f,s?c+r:r,i,c,o))}function f(n,r,o,a){if(!m||e){var f=m;m=!0;try{t.emit(n,r,o,e,a)}catch(c){i([c,n,r,o],t)}m=f}}return t||(t=s),n.inPlace=r,n.flag=p,n}function i(t,e){e||(e=s);try{e.emit("internal-error",t)}catch(n){}}function o(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(o){i([o],n)}for(var a in t)l.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[p])}function f(t,e){var n=e(t);return n[p]=t,o(t,n,s),n}function c(t,e,n){var r=t[e];t[e]=f(r,n)}function u(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var s=t("ee"),d=t(9),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;e.exports=r,e.exports.wrapFunction=f,e.exports.wrapInPlace=c,e.exports.argsToArray=u},{}]},{},["loader"]);</script>
+<meta name="description" content="Default Description 2"/>
+<meta name="keywords" content="Specialized, bicicletas, bicicletas electricas, mountain bike, mtb, trek, giant, bicicleta de montaña, enduro"/>
+<meta name="robots" content="INDEX,FOLLOW"/>
+<meta name="title" content="PREVENTA"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+<meta name="format-detection" content="telephone=no"/>
+<title>PREVENTA</title>
+<link  rel="stylesheet" type="text/css"  media="all" href="https://www.specializedperu.com/pub/static/frontend/Meigee/coccinelle/es_ES/mage/calendar.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="https://www.specializedperu.com/pub/static/frontend/Meigee/coccinelle/es_ES/css/styles-m.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="https://www.specializedperu.com/pub/static/frontend/Meigee/coccinelle/es_ES/css/specialized.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="https://www.specializedperu.com/pub/static/frontend/Meigee/coccinelle/es_ES/Magefan_Blog/css/blog-m.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="https://www.specializedperu.com/pub/static/frontend/Meigee/coccinelle/es_ES/Magefan_Blog/css/blog-custom.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="https://www.specializedperu.com/pub/static/frontend/Meigee/coccinelle/es_ES/WeltPixel_Quickview/css/magnific-popup.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="https://www.specializedperu.com/pub/static/frontend/Meigee/coccinelle/es_ES/Meigee_CategoriesEnhanced/css/megamenu.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="https://www.specializedperu.com/pub/static/frontend/Meigee/coccinelle/es_ES/Meigee_CategoriesEnhanced/css/megamenu-theme.css" />
+<link  rel="stylesheet" type="text/css"  media="screen and (min-width: 768px)" href="https://www.specializedperu.com/pub/static/frontend/Meigee/coccinelle/es_ES/css/styles-l.css" />
+<link  rel="stylesheet" type="text/css"  media="print" href="https://www.specializedperu.com/pub/static/frontend/Meigee/coccinelle/es_ES/css/print.css" />
+<script  type="text/javascript"  src="https://www.specializedperu.com/pub/static/_cache/merged/9f5204665819dc1875f1cd5e20f8b2e3.min.js"></script>
+<link  rel="icon" type="image/x-icon" href="https://www.specializedperu.com/pub/media/favicon/websites/1/favicon.png" />
+<link  rel="shortcut icon" type="image/x-icon" href="https://www.specializedperu.com/pub/media/favicon/websites/1/favicon.png" />
+            <script data-cfasync="false" async type="text/javascript" src="https://acp-magento.appspot.com/js/acp-magento.js?mage_v=2.3.2&ext_v=4.7.20&store=7&UUID=555a4ff0-22b9-4d24-9f91-d91309307691&m2=1"></script>
+<!-- BEGIN GOOGLE ANALYTICS CODE -->
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_GoogleAnalytics/js/google-analytics": {
+            "isCookieRestrictionModeEnabled": 0,
+            "currentWebsite": 1,
+            "cookieName": "user_allowed_save_cookie",
+            "ordersTrackingData": [],
+            "pageTrackingData": {"optPageUrl":"","isAnonymizedIpActive":false,"accountId":"UA-112341952-1"}        }
+    }
+}
+</script>
+<!-- END GOOGLE ANALYTICS CODE -->
+<link href='//fonts.googleapis.com/css?family=Barlow:200,400,500,600%7CWork+Sans:400,500,600' rel='stylesheet' type='text/css'>
+<style type="text/css">
+	body.boxed-layout .container,
+	body .container,
+	body #maincontent,
+	body .page-wrapper > .breadcrumbs {max-width: 1332px; width: 100%;}
+	#sticky-header {opacity: 1;}
+</style>    </head>
+    <body data-container="body" data-mage-init='{"loaderAjax": {}, "loader": { "icon": "https://www.specializedperu.com/pub/static/frontend/Meigee/coccinelle/es_ES/images/loader-2.gif"}}' class="page-with-filter page-products categorypath-preventa category-preventa wide-layout stycky-tablet catalog-category-view page-layout-2columns-left">
+        <div id="email"></div>
+<script type="text/x-magento-init">
+    {
+    "*":
+    {
+            "Bss_FacebookPixel/js/code": {
+                "id" : 606840983529503,
+                "action" : "catalog_category_view",
+                "productData" : 404,
+                "categoryData" : {"content_name":"PREVENTA","content_ids":"251","content_type":"category","currency":"USD"},
+                "registration" : 404,
+                "addToWishList" : 404,
+                "initiateCheckout" : 404,
+                "search" : 404,
+                "orderData" : 404,
+                "pageView" : "pass"
+            }
+        }
+    }
+</script>
+<!-- Facebook Pixel Code -->
+<noscript><img height="1" width="1" style="display:none" alt="Facebook Pixel"
+               src="https://www.facebook.com/tr?id=606840983529503&ev=PageView&noscript=1"
+    /></noscript>
+<!-- End Facebook Pixel Code -->
+<div data-role="bss-fbpixel-subscribe" style="display:none;">
+</div>
+<span class="bss-subscribe-email" style="display:none;"></span>
+<span class="bss-subscribe-id" style="display:none;"></span>
+<script type="text/x-magento-init">
+    {
+        "[data-role='bss-fbpixel-subscribe']":
+            {
+                "Magento_Ui/js/core/app": {"components":{"bssFbpixelsSubscribe":{"component":"Bss_FacebookPixel\/js\/subscribe"}}}            }
+    }
+</script>
+<div data-role="bss-fbpixel-atc" style="display:none;">
+
+</div>
+<script type="text/x-magento-init">
+    {
+        "[data-role='bss-fbpixel-atc']":
+            {
+                "Magento_Ui/js/core/app": {"components":{"bssFbpixelsAtc":{"component":"Bss_FacebookPixel\/js\/atc"}}}            }
+    }
+</script>
+
+<script>
+    require.config({
+        map: {
+            '*': {
+                wysiwygAdapter: 'Magento_Tinymce3/tinymce3Adapter'
+            }
+        }
+    });
+</script>
+<link rel="stylesheet" href="https://www.specializedperu.com/pub/media//meigee/coccinelle/skin_normandy_beige.css" /><link rel="stylesheet" href="https://www.specializedperu.com/pub/media/meigee/coccinelle_english7.css" />    <script>
+        require.config({
+            deps: [
+                'jquery',
+                'mage/translate',
+                'jquery/jquery-storageapi'
+            ],
+            callback: function ($) {
+                'use strict';
+
+                var dependencies = [],
+                    versionObj;
+
+                $.initNamespaceStorage('mage-translation-storage');
+                $.initNamespaceStorage('mage-translation-file-version');
+                versionObj = $.localStorage.get('mage-translation-file-version');
+
+                
+                if (versionObj.version !== 'cba4951203abae7e111f5654fda5acc18a155b31') {
+                    dependencies.push(
+                        'text!js-translation.json'
+                    );
+
+                }
+
+                require.config({
+                    deps: dependencies,
+                    callback: function (string) {
+                        if (typeof string === 'string') {
+                            $.mage.translate.add(JSON.parse(string));
+                            $.localStorage.set('mage-translation-storage', string);
+                            $.localStorage.set(
+                                'mage-translation-file-version',
+                                {
+                                    version: 'cba4951203abae7e111f5654fda5acc18a155b31'
+                                }
+                            );
+                        } else {
+                            $.mage.translate.add($.localStorage.get('mage-translation-storage'));
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "mage/cookies": {
+                "expires": null,
+                "path": "/",
+                "domain": ".www.specializedperu.com",
+                "secure": false,
+                "lifetime": "3600"
+            }
+        }
+    }
+</script>
+    <noscript>
+        <div class="message global noscript">
+            <div class="content">
+                <p>
+                    <strong>Parece que JavaScript está deshabilitado en su navegador.</strong>
+                    <span>Para obtener la mejor experiencia en nuestro sitio, asegúrese de activar Javascript en su navegador.</span>
+                </p>
+            </div>
+        </div>
+    </noscript>
+<div class="page-wrapper">	<div class="header-wrapper">
+		<header class="page-header header-2">
+			<div class="top-block">
+				<div class="container">
+					<div class="top-block-inner clearfix">
+											</div>
+				</div>
+			</div>
+			<div class="middle-block">
+				<div class="container">
+					<div class="middle-block-inner clearfix">
+						<div class="logo-wrapper pull-left">
+							<span data-action="toggle-nav" class="action nav-toggle">
+	<i class="meigee-menu"></i>
+    <span>Menú</span>
+</span>
+							
+
+
+    <a class="logo" href="https://www.specializedperu.com/" title="Specialized Perú">
+        <img src="https://www.specializedperu.com/pub/media//logo/stores/7/specialized-logo_1.png"
+             alt="Specialized Perú"
+             width="242"             height="26"        />
+    </a>
+						</div>
+						<div class="menu-wrapper">
+														<div class="toggle-nav clearfix"><nav class="navbar navbar-default navigation" id="megamenu">
+	<span data-action="toggle-nav" class="action nav-toggle"><i class="fa fa-bars"></i><span>Menú</span></span>
+	<div class="collapse topmenu navbar-collapse megamenu">
+		<ul class="nav topmenu navbar-nav" id="nav">
+			<li  class="level0 nav-1 category-item first level-top parent"><a href="https://www.specializedperu.com/catalog/category/view/s/bicicletas/id/467/"  class="level-top" > <span>BICICLETAS</span></a><a href="javascript: void(0);" class="level-top action-link"> <span>BICICLETAS</span></a><div class="megamenu-wrapper"  data-columns="5"><div class="megamenu-center-block"><div class="left-column col-md-9"><ul class="level0 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/catalog/category/view/s/bicicletas/id/467/" > <span>BICICLETAS</span></a></li><li  class="level1 nav-1-1 category-item first parent"><a href="https://www.specializedperu.com/catalog/category/view/s/monta-a/id/468/"  data-bold-link="1"> <span>Montaña</span></a><a href="javascript: void(0);" class=" action-link"> <span>Montaña</span></a><ul class="level1 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/catalog/category/view/s/monta-a/id/468/"  data-bold-link="1"> <span>Montaña</span></a></li><li  class="level2 nav-1-1-1 category-item first"><a href="https://www.specializedperu.com/bicicletas/monta-a/demo.html" > <span>Demo</span></a></li><li  class="level2 nav-1-1-2 category-item"><a href="https://www.specializedperu.com/bicicletas/monta-a/epic.html" > <span>Epic</span></a></li><li  class="level2 nav-1-1-3 category-item"><a href="https://www.specializedperu.com/bicicletas/monta-a/enduro.html" > <span>Enduro</span></a></li><li  class="level2 nav-1-1-4 category-item"><a href="https://www.specializedperu.com/bicicletas/monta-a/stumpjumper.html" > <span>Stumpjumper</span></a></li><li  class="level2 nav-1-1-5 category-item"><a href="https://www.specializedperu.com/bicicletas/monta-a/rockhopper.html" > <span>Rockhopper</span></a></li><li  class="level2 nav-1-1-6 category-item last"><a href="https://www.specializedperu.com/bicicletas/monta-a/status.html" > <span>Status</span></a></li></ul></li><li  class="level1 nav-1-2 category-item parent"><a href="https://www.specializedperu.com/catalog/category/view/s/ruta/id/469/"  data-bold-link="1"> <span>Ruta</span></a><a href="javascript: void(0);" class=" action-link"> <span>Ruta</span></a><ul class="level1 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/catalog/category/view/s/ruta/id/469/"  data-bold-link="1"> <span>Ruta</span></a></li><li  class="level2 nav-1-2-1 category-item first"><a href="https://www.specializedperu.com/bicicletas/ruta/aethos.html" > <span>Aethos</span></a></li><li  class="level2 nav-1-2-2 category-item"><a href="https://www.specializedperu.com/bicicletas/ruta/allez.html" > <span>Allez</span></a></li><li  class="level2 nav-1-2-3 category-item"><a href="https://www.specializedperu.com/bicicletas/ruta/diverge.html" > <span>Diverge</span></a></li><li  class="level2 nav-1-2-4 category-item"><a href="https://www.specializedperu.com/bicicletas/ruta/roubaix.html" > <span>Roubaix</span></a></li><li  class="level2 nav-1-2-5 category-item"><a href="https://www.specializedperu.com/bicicletas/ruta/shiv.html" > <span>Shiv</span></a></li><li  class="level2 nav-1-2-6 category-item last"><a href="https://www.specializedperu.com/bicicletas/ruta/tarmac.html" > <span>Tarmac</span></a></li></ul></li><li  class="level1 nav-1-3 category-item parent"><a href="https://www.specializedperu.com/catalog/category/view/s/active/id/470/"  data-bold-link="1"> <span>Active</span></a><a href="javascript: void(0);" class=" action-link"> <span>Active</span></a><ul class="level1 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/catalog/category/view/s/active/id/470/"  data-bold-link="1"> <span>Active</span></a></li><li  class="level2 nav-1-3-1 category-item first last"><a href="https://www.specializedperu.com/bicicletas/active/roll.html" > <span>Roll</span></a></li></ul></li><li  class="level1 nav-1-4 category-item parent"><a href="https://www.specializedperu.com/bicicletas/ni-os.html"  data-bold-link="1"> <span>Niños</span></a><a href="javascript: void(0);" class=" action-link"> <span>Niños</span></a><ul class="level1 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/bicicletas/ni-os.html"  data-bold-link="1"> <span>Niños</span></a></li><li  class="level2 nav-1-4-1 category-item first"><a href="https://www.specializedperu.com/bicicletas/ni-os/hotwalk.html" > <span>Hotwalk</span></a></li><li  class="level2 nav-1-4-2 category-item last"><a href="https://www.specializedperu.com/bicicletas/ni-os/riprock.html" > <span>Riprock</span></a></li></ul></li></ul></div><div class="right-column col-md-3"><div class="widget block block-static-block">
+    <style>
+/* The dots/bullets/indicators */
+.dotbici {
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.slideshow-container .active, .dotbici:hover {
+  background-color: #717171;
+}
+
+</style>
+
+<div class="slideshow-container">
+
+<div class="mySlidesbici fade">
+  <div class="numbertext">1 / 2</div>
+  <img src="https://www.specializedperu.com/pub/media/wysiwyg/bicis-1.jpg" style="width:100%">
+  <div class="text">ROAD BIKES</div>
+</div>
+
+<div class="mySlidesbici fade">
+  <div class="numbertext">2 / 2</div>
+  <img src="https://www.specializedperu.com/pub/media/wysiwyg/bicis-2.jpg" style="width:100%">
+  <div class="text">EPIC</div>
+</div>
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dotbici" onclick="currentSlide1(1)"></span> 
+  <span class="dotbici" onclick="currentSlide1(2)"></span> 
+</div>
+
+<script>
+var slideIndexUno = 1;
+showSlides1(slideIndexUno);
+
+function plusSlides(n) {
+  showSlides1(slideIndexUno += n);
+}
+
+function currentSlide1(n) {
+  showSlides1(slideIndexUno = n);
+}
+
+function showSlides1(n) {
+  var i;
+  var slidesbici = document.getElementsByClassName("mySlidesbici");
+  var dotsbici = document.getElementsByClassName("dotbici");
+  if (n > slidesbici.length) {slideIndexUno = 1}    
+  if (n < 1) {slideIndexUno = slidesbici.length}
+  for (i = 0; i < slidesbici.length; i++) {
+      slidesbici[i].style.display = "none";  
+  }
+  for (i = 0; i < dotsbici.length; i++) {
+      dotsbici[i].className = dotsbici[i].className.replace(" active", "");
+  }
+  slidesbici[slideIndexUno-1].style.display = "block";  
+  dotsbici[slideIndexUno-1].className += " active";
+}
+</script>
+</div>
+</div></div></div></li><li  class="level0 nav-2 category-item level-top parent"><a href="https://www.specializedperu.com/turbo.html"  class="level-top" > <span>TURBO E-BIKES</span></a><a href="javascript: void(0);" class="level-top action-link"> <span>TURBO E-BIKES</span></a><div class="megamenu-wrapper"  data-columns="5"><div class="megamenu-center-block"><div class="left-column col-md-9"><ul class="level0 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/turbo.html" > <span>TURBO E-BIKES</span></a></li><li  class="level1 nav-2-1 category-item first parent"><a href="https://www.specializedperu.com/turbo/turbo-mtb.html"  data-bold-link="1"> <span>Montaña</span></a><a href="javascript: void(0);" class=" action-link"> <span>Montaña</span></a><ul class="level1 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/turbo/turbo-mtb.html"  data-bold-link="1"> <span>Montaña</span></a></li><li  class="level2 nav-2-1-1 category-item first"><a href="https://www.specializedperu.com/turbo/turbo-mtb/levo-sl.html" > <span>Levo SL</span></a></li><li  class="level2 nav-2-1-2 category-item"><a href="https://www.specializedperu.com/turbo/turbo-mtb/levo.html" > <span>Levo</span></a></li><li  class="level2 nav-2-1-3 category-item last"><a href="https://www.specializedperu.com/turbo/turbo-mtb/kenevo.html" > <span>Kenevo</span></a></li></ul></li><li  class="level1 nav-2-2 category-item parent"><a href="https://www.specializedperu.com/turbo/turbo-ruta.html"  data-bold-link="1"> <span>Ruta</span></a><a href="javascript: void(0);" class=" action-link"> <span>Ruta</span></a><ul class="level1 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/turbo/turbo-ruta.html"  data-bold-link="1"> <span>Ruta</span></a></li><li  class="level2 nav-2-2-1 category-item first last"><a href="https://www.specializedperu.com/turbo/turbo-ruta/creo.html" > <span>Creo SL</span></a></li></ul></li><li  class="level1 nav-2-3 category-item last parent"><a href="https://www.specializedperu.com/turbo/turbo-active.html"  data-bold-link="1"> <span>Active</span></a><a href="javascript: void(0);" class=" action-link"> <span>Active</span></a><ul class="level1 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/turbo/turbo-active.html"  data-bold-link="1"> <span>Active</span></a></li><li  class="level2 nav-2-3-1 category-item first"><a href="https://www.specializedperu.com/turbo/turbo-active/como.html" > <span>Como</span></a></li><li  class="level2 nav-2-3-2 category-item"><a href="https://www.specializedperu.com/turbo/turbo-active/vado.html" > <span>Vado</span></a></li><li  class="level2 nav-2-3-3 category-item last"><a href="https://www.specializedperu.com/turbo/turbo-active/vado-sl.html" > <span>Vado SL</span></a></li></ul></li></ul></div><div class="right-column col-md-3"><div class="widget block block-static-block">
+    <style>
+/* The dots/bullets/indicators */
+.dotturbo {
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.slideshow-container .active, .dotturbo:hover {
+  background-color: #717171;
+}
+
+</style>
+
+<div class="slideshow-container">
+
+<div class="mySlidesturbo fade">
+  <div class="numbertext">1 / 2</div>
+  <img src="https://www.specializedperu.com/pub/media/wysiwyg/4_1.jpg" style="width:100%">
+  <div class="text">INTRODUCIENDO TURBO CREO SL</div>
+</div>
+
+<div class="mySlidesturbo fade">
+  <div class="numbertext">2 / 2</div>
+  <img src="https://www.specializedperu.com/pub/media/wysiwyg/5_1.jpg" style="width:100%">
+  <div class="text">THE ALL-NEW TURBO LEVO</div>
+</div>
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dotturbo" onclick="currentSlide2(1)"></span> 
+  <span class="dotturbo" onclick="currentSlide2(2)"></span> 
+</div>
+
+<script>
+var slideIndexDos = 1;
+showSlides2(slideIndexDos);
+
+function plusSlides(n) {
+  showSlides2(slideIndexDos += n);
+}
+
+function currentSlide2(n) {
+  showSlides2(slideIndexDos = n);
+}
+
+function showSlides2(n) {
+  var i;
+  var slidesturbo = document.getElementsByClassName("mySlidesturbo");
+  var dotsturbo = document.getElementsByClassName("dotturbo");
+  if (n > slidesturbo.length) {slideIndexDos = 1}    
+  if (n < 1) {slideIndexDos = slidesturbo.length}
+  for (i = 0; i < slidesturbo.length; i++) {
+      slidesturbo[i].style.display = "none";  
+  }
+  for (i = 0; i < dotsturbo.length; i++) {
+      dotsturbo[i].className = dotsturbo[i].className.replace(" active", "");
+  }
+  slidesturbo[slideIndexDos-1].style.display = "block";  
+  dotsturbo[slideIndexDos-1].className += " active";
+}
+</script>
+
+
+</div>
+</div></div></div></li><li  class="level0 nav-3 category-item level-top parent"><a href="https://www.specializedperu.com/equipamiento.html"  class="level-top" > <span>EQUIPAMIENTO</span></a><a href="javascript: void(0);" class="level-top action-link"> <span>EQUIPAMIENTO</span></a><div class="megamenu-wrapper"  data-columns="7"><div class="megamenu-center-block"><div class="left-column col-md-9"><ul class="level0 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/equipamiento.html" > <span>EQUIPAMIENTO</span></a></li><li  class="level1 nav-3-1 category-item first parent"><a href="https://www.specializedperu.com/equipamiento/ropa.html"  data-bold-link="1"> <span>Ropa</span></a><a href="javascript: void(0);" class=" action-link"> <span>Ropa</span></a><ul class="level1 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/equipamiento/ropa.html"  data-bold-link="1"> <span>Ropa</span></a></li><li  class="level2 nav-3-1-1 category-item first"><a href="https://www.specializedperu.com/catalog/category/view/s/chaquetas/id/556/" > <span>Chaquetas</span></a></li><li  class="level2 nav-3-1-2 category-item"><a href="https://www.specializedperu.com/catalog/category/view/s/ropa-casual/id/580/" > <span>Ropa Casual</span></a></li><li  class="level2 nav-3-1-3 category-item"><a href="https://www.specializedperu.com/equipamiento/ropa/pantalonetas.html" > <span>Pantalonetas</span></a></li><li  class="level2 nav-3-1-4 category-item"><a href="https://www.specializedperu.com/equipamiento/ropa/ropa-casual.html" > <span>Casual</span></a></li><li  class="level2 nav-3-1-5 category-item"><a href="https://www.specializedperu.com/equipamiento/ropa/prendas-para-la-cabeza.html" > <span>Gorros</span></a></li></ul></li><li  class="level1 nav-3-2 category-item parent"><a href="https://www.specializedperu.com/equipamiento/equipo.html"  data-bold-link="1"> <span>Equipo</span></a><a href="javascript: void(0);" class=" action-link"> <span>Equipo</span></a><ul class="level1 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/equipamiento/equipo.html"  data-bold-link="1"> <span>Equipo</span></a></li><li  class="level2 nav-3-2-1 category-item first"><a href="https://www.specializedperu.com/equipamiento/equipo/cascos.html" > <span>Cascos</span></a></li><li  class="level2 nav-3-2-2 category-item"><a href="https://www.specializedperu.com/equipamiento/equipo/calzado.html" > <span>Zapatillas</span></a></li><li  class="level2 nav-3-2-3 category-item last"><a href="https://www.specializedperu.com/equipamiento/equipo/guantes.html" > <span>Guantes</span></a></li></ul></li><li  class="level1 nav-3-3 category-item parent"><a href="https://www.specializedperu.com/catalog/category/view/s/accesorios/id/572/"  data-bold-link="1"> <span>Accesorios</span></a><a href="javascript: void(0);" class=" action-link"> <span>Accesorios</span></a><ul class="level1 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/catalog/category/view/s/accesorios/id/572/"  data-bold-link="1"> <span>Accesorios</span></a></li><li  class="level2 nav-3-3-1 category-item first parent"><a href="https://www.specializedperu.com/equipamiento/accesorios/almacenamiento.html" > <span>Almacenamiento</span></a><a href="javascript: void(0);" class=" action-link"> <span>Almacenamiento</span></a><ul class="level2 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/equipamiento/accesorios/almacenamiento.html" > <span>Almacenamiento</span></a></li><li  class="level3 nav-3-3-1-1 category-item first last"><a href="https://www.specializedperu.com/equipamiento/maletas/panniers.html" > <span>Panniers</span></a></li></ul></li><li  class="level2 nav-3-3-2 category-item"><a href="https://www.specializedperu.com/equipamiento/accesorios/herramientas.html" > <span>Herramientas</span></a></li><li  class="level2 nav-3-3-3 category-item"><a href="https://www.specializedperu.com/equipamiento/accesorios/infladores-pipetas-de-co2.html" > <span>Infladores</span></a></li><li  class="level2 nav-3-3-4 category-item"><a href="https://www.specializedperu.com/equipamiento/accesorios/botellas-y-portabotellas.html" > <span>Botellas y Portabotellas</span></a></li><li  class="level2 nav-3-3-5 category-item last"><a href="https://www.specializedperu.com/equipamiento/accesorios/luces-accesorios.html" > <span>Luces</span></a></li></ul></li><li  class="level1 nav-3-4 category-item parent"><a href="https://www.specializedperu.com/catalog/category/view/s/componentes/id/573/"  data-bold-link="1"> <span>Componentes</span></a><a href="javascript: void(0);" class=" action-link"> <span>Componentes</span></a><ul class="level1 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/catalog/category/view/s/componentes/id/573/"  data-bold-link="1"> <span>Componentes</span></a></li><li  class="level2 nav-3-4-1 category-item first"><a href="https://www.specializedperu.com/equipamiento/componentes/sillas-sillines.html" > <span>Asientos</span></a></li><li  class="level2 nav-3-4-2 category-item"><a href="https://www.specializedperu.com/equipamiento/componentes/accesoriohome.html" > <span>Componentes</span></a></li><li  class="level2 nav-3-4-3 category-item"><a href="https://www.specializedperu.com/equipamiento/componentes/llantas-neumaticos.html" > <span>Llantas</span></a></li><li  class="level2 nav-3-4-4 category-item last parent"><a href="https://www.specializedperu.com/equipamiento/componentes/manubrios-accesorios.html" > <span>Timones</span></a><a href="javascript: void(0);" class=" action-link"> <span>Timones</span></a><ul class="level2 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/equipamiento/componentes/manubrios-accesorios.html" > <span>Timones</span></a></li></ul></li></ul></li><li  class="level1 nav-3-5 category-item last"><a href="https://www.specializedperu.com/equipamiento/destacados.html" > <span>Destacados</span></a></li></ul></div><div class="right-column col-md-3"><p><div class="widget block block-static-block">
+    <style>
+/* The dots/bullets/indicators */
+.dotequi {
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.slideshow-container .active, .dotequi:hover {
+  background-color: #717171;
+}
+
+</style>
+
+<div class="slideshow-container">
+
+<div class="mySlidesequi fade">
+  <div class="numbertext">1 / 2</div>
+  <img src="https://www.specializedperu.com/pub/media/wysiwyg/6.jpg" style="width:100%">
+  <div class="text">S-WORKS TURBO RAPIDAIR</div>
+</div>
+
+<div class="mySlidesequi fade">
+  <div class="numbertext">2 / 2</div>
+  <img src="https://www.specializedperu.com/pub/media/wysiwyg/5_1.jpg" style="width:100%">
+  <div class="text">THE ALL-NEW TURBO LEVO</div>
+</div>
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dotequi" onclick="currentSlide2(1)"></span> 
+  <span class="dotequi" onclick="currentSlide2(2)"></span> 
+</div>
+
+<script>
+var slideIndexDos = 1;
+showSlides2(slideIndexDos);
+
+function plusSlides(n) {
+  showSlides2(slideIndexDos += n);
+}
+
+function currentSlide2(n) {
+  showSlides2(slideIndexDos = n);
+}
+
+function showSlides2(n) {
+  var i;
+  var slidesequi = document.getElementsByClassName("mySlidesequi");
+  var dotsequi = document.getElementsByClassName("dotequi");
+  if (n > slidesequi.length) {slideIndexDos = 1}    
+  if (n < 1) {slideIndexDos = slidesequi.length}
+  for (i = 0; i < slidesequi.length; i++) {
+      slidesequi[i].style.display = "none";  
+  }
+  for (i = 0; i < dotsequi.length; i++) {
+      dotsequi[i].className = dotsequi[i].className.replace(" active", "");
+  }
+  slidesequi[slideIndexDos-1].style.display = "block";  
+  dotsequi[slideIndexDos-1].className += " active";
+}
+</script>
+
+
+</div>
+</p></div></div></div></li><li  class="level0 nav-4 category-item level-top"><a href="https://www.specializedperu.com/preventa.html"  class="level-top" > <span>PREVENTA</span></a></li><li  class="level0 nav-5 category-item active level-top"><a href="https://www.specializedperu.com/esenciales.html"  class="level-top" > <span>ESENCIALES</span></a></li>					</ul>
+	</div>
+</nav> </div>
+						</div>
+						<div class="right-block pull-right">
+							<!-- Side-menu -->
+							<div class="options-wrapper side-menu">
+								<div class="options-block side-menu-btn">
+									<span class="side-menu-icon"><i class="meigeeadditional-nav"></i></span>
+								</div>
+								<div class="options-dropdown side-menu-content">
+									<div class="side-menu-header"><span class="btn-close"><i class="meigee-close"></i></span></div>
+									<div class="dropdown-item">
+										<span class="label">Mi Cuenta</span>
+										<ul class="header links">
+			<li class="item link compare" data-bind="scope: 'compareProducts'" data-role="compare-products-link">
+    <a class="action compare no-display" title="Comparar productos"
+       data-bind="attr: {'href': compareProducts().listUrl}, css: {'no-display': !compareProducts().count}"
+    >
+        Comparar productos        <span class="counter qty" data-bind="text: compareProducts().countCaption"></span>
+    </a>
+</li>
+<script type="text/x-magento-init">
+{"[data-role=compare-products-link]": {"Magento_Ui/js/core/app": {"components":{"compareProducts":{"component":"Magento_Catalog\/js\/view\/compare-products"}}}}}
+</script>
+					<li class="link wishlist" data-bind="scope: 'wishlist'">
+    <a href="https://www.specializedperu.com/wishlist/">Mi lista de deseos        <!-- ko if: wishlist().counter -->
+        <span data-bind="text: wishlist().counter" class="counter qty"></span>
+        <!-- /ko -->
+    </a>
+</li>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "wishlist": {
+                        "component": "Magento_Wishlist/js/view/wishlist"
+                    }
+                }
+            }
+        }
+    }
+
+</script>
+				<li><a href="https://www.specializedperu.com/customer/account/create/" >Crear una cuenta</a></li>				<li class="authorization-link" data-label="o">
+    <a href="https://www.specializedperu.com/customer/account/login/referer/aHR0cHM6Ly93d3cuc3BlY2lhbGl6ZWRwZXJ1LmNvbS9wcmV2ZW50YS5odG1s/">
+        Registrarse    </a>
+</li>
+	</ul>									</div>
+		                			
+			                		<div class="dropdown-item currency">
+  <div class="currency switcher-currency header-switcher" id="switcher-currency">
+                <strong class="label switcher-label"><span>Moneda</span></strong>
+                <div class="actions dropdown options switcher-options">
+        <ul class="form-currency">
+                                                          <li class="currency-USD switcher-option">
+                <span>USD - dólar estadounidense</span>
+              </li>
+                                                           <li class="currency-PEN switcher-option">
+                 <a href="#" data-post='{"action":"https:\/\/www.specializedperu.com\/directory\/currency\/switch\/","data":{"currency":"PEN","uenc":"aHR0cHM6Ly93d3cuc3BlY2lhbGl6ZWRwZXJ1LmNvbS9wcmV2ZW50YS5odG1s"}}'>
+                                    PEN - sol peruano                 </a>
+               </li>
+                                                            </ul>
+      </div>
+        </div>
+</div>
+								</div>
+							</div>
+							<div class="block block-search type-2">
+    <div class="block block-title"><i class="meigee-search" title="Buscar"></i><strong>Buscar</strong></div>
+    <div class="block block-content">
+        <form class="form minisearch" id="search_mini_form_1497" action="https://www.specializedperu.com/catalogsearch/result/" method="get">
+            <div class="field search">
+                <label class="label" for="search_1497" data-role="minisearch-label">
+                    <span>Buscar</span>
+                </label>
+                <div class="control">
+                    <input id="search_1497"
+                           data-mage-init='{"quickSearch":{
+                                "formSelector":"#search_mini_form_1497",
+                                "url":"https://www.specializedperu.com/search/ajax/suggest/",
+                                "destinationSelector":"#search_autocomplete_1497"}
+                           }'
+                           type="text"
+                           name="q"
+                           value=""
+                           placeholder="Busque aquí por toda la tienda..."
+                           class="input-text"
+                           maxlength="128"
+                           role="combobox"
+                           aria-haspopup="false"
+                           aria-expanded="true"
+                           aria-autocomplete="both"
+                           autocomplete="off"/>
+                    <div id="search_autocomplete_1497" class="search-autocomplete"></div>
+                    <div class="nested">
+    <a class="action advanced" href="https://www.specializedperu.com/catalogsearch/advanced/" data-action="advanced-search">
+        Búsqueda avanzada    </a>
+</div>
+                </div>
+            </div>
+            <div class="actions">
+                <button type="submit"
+                        title="Buscar"
+                        class="action search" aria-label="Search">
+                    <span>Buscar</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+							    <div data-block="minicart" class="minicart-wrapper">
+        <a class="action showcart title-cart" href="https://www.specializedperu.com/checkout/cart/"
+           data-bind="scope: 'minicart_content'">
+            <span class="counter qty empty"
+                      data-bind="css: { empty: !!getCartParam('summary_count') == false }, blockLoader: isLoading">
+                    <span class="icon-wrapper">
+                        <span class="icon">
+                            <i class="meigeeadditional-add-to-cart"></i>
+                        </span>
+                                                <span class="counter-number"><!-- ko text: getCartParam('summary_count') --><!-- /ko --></span>
+                        <span class="counter-label">
+                        <!-- ko if: getCartParam('summary_count') -->
+                            <!-- ko text: getCartParam('summary_count') --><!-- /ko -->
+                            <!-- ko i18n: 'items' --><!-- /ko -->
+                        <!-- /ko -->
+                        </span>
+                                            </span>
+                            </span>
+        </a>
+                    <div class="block block-minicart"
+                 data-role="dropdownDialog"
+                 data-mage-init='{"dropdownDialog":{
+                    "appendTo":"[data-block=minicart]",
+                    "triggerTarget":".showcart",
+                    "timeout": "2000",
+                    "closeOnMouseLeave": true,
+                    "closeOnEscape": true,
+                    "triggerClass":"active",
+                    "parentClass":"active",
+                    "buttons":[]}}'>
+                <div id="minicart-content-wrapper" data-bind="scope: 'minicart_content'">
+                    <!-- ko template: getTemplate() --><!-- /ko -->
+                </div>
+    			            </div>
+                <script>
+            window.checkout = {"shoppingCartUrl":"https:\/\/www.specializedperu.com\/checkout\/cart\/","checkoutUrl":"https:\/\/www.specializedperu.com\/checkout\/","updateItemQtyUrl":"https:\/\/www.specializedperu.com\/checkout\/sidebar\/updateItemQty\/","removeItemUrl":"https:\/\/www.specializedperu.com\/checkout\/sidebar\/removeItem\/","imageTemplate":"Magento_Catalog\/product\/image_with_borders","baseUrl":"https:\/\/www.specializedperu.com\/","minicartMaxItemsVisible":5,"websiteId":"1","maxItemsToDisplay":10,"storeId":"7","customerLoginUrl":"https:\/\/www.specializedperu.com\/customer\/account\/login\/referer\/aHR0cHM6Ly93d3cuc3BlY2lhbGl6ZWRwZXJ1LmNvbS9wcmV2ZW50YS5odG1s\/","isRedirectRequired":false,"autocomplete":"off","isp_store_id":"7","sessionID":"3d868eb80cde7b92d9e50faa3dc748c6e9fe3b65db5df7de2c0fe3a0af8aefac","is_user_logged_in":"0","QuoteID":null,"is_admin_user":0,"captcha":{"user_login":{"isCaseSensitive":false,"imageHeight":50,"imageSrc":"","refreshUrl":"https:\/\/www.specializedperu.com\/captcha\/refresh\/","isRequired":false,"timestamp":1629180099}}};
+        </script>
+        <script type="text/x-magento-init">
+        {
+            "[data-block='minicart']": {
+                "Magento_Ui/js/core/app": {"components":{"minicart_content":{"children":{"subtotal.container":{"children":{"subtotal":{"children":{"subtotal.totals":{"config":{"display_cart_subtotal_incl_tax":1,"display_cart_subtotal_excl_tax":0,"template":"Magento_Tax\/checkout\/minicart\/subtotal\/totals"},"children":{"subtotal.totals.msrp":{"component":"Magento_Msrp\/js\/view\/checkout\/minicart\/subtotal\/totals","config":{"displayArea":"minicart-subtotal-hidden","template":"Magento_Msrp\/checkout\/minicart\/subtotal\/totals"}}},"component":"Magento_Tax\/js\/view\/checkout\/minicart\/subtotal\/totals"}},"component":"uiComponent","config":{"template":"Magento_Checkout\/minicart\/subtotal"}}},"component":"uiComponent","config":{"displayArea":"subtotalContainer"}},"item.renderer":{"component":"uiComponent","config":{"displayArea":"defaultRenderer","template":"Magento_Checkout\/minicart\/item\/default"},"children":{"item.image":{"component":"Magento_Catalog\/js\/view\/image","config":{"template":"Magento_Catalog\/product\/image","displayArea":"itemImage"}},"checkout.cart.item.price.sidebar":{"component":"uiComponent","config":{"template":"Magento_Checkout\/minicart\/item\/price","displayArea":"priceSidebar"}}}},"extra_info":{"component":"uiComponent","config":{"displayArea":"extraInfo"}},"promotion":{"component":"uiComponent","config":{"displayArea":"promotion"}}},"config":{"itemRenderer":{"default":"defaultRenderer","simple":"defaultRenderer","virtual":"defaultRenderer"},"template":"Magento_Checkout\/minicart\/content"},"component":"Magento_Checkout\/js\/view\/minicart"}},"types":[]}            },
+            "*": {
+                "Magento_Ui/js/block-loader": "https://www.specializedperu.com/pub/static/frontend/Meigee/coccinelle/es_ES/images/loader-1.gif"
+            }
+        }
+        </script>
+    </div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		
+<div id="sticky-header" class="header">
+  <div class="container">
+    <div class="left-wrapper">
+		<span data-action="toggle-nav" class="action nav-toggle">
+			<i class="meigee-nav"></i>
+			<span>Menu</span>
+		</span>
+      
+
+
+    <a class="small-logo" href="https://www.specializedperu.com/" title="Specialized Perú">
+        <img src="https://www.specializedperu.com/pub/media//logo/stores/7/specialized-logo_1_2.png"
+             alt="Specialized Perú"
+             width="242"             height="26"        />
+    </a>
+ 
+    </div>
+    <div class="right-wrapper clearfix with-search">
+       
+      <div class="block block-search type-2">
+    <div class="block block-title"><i class="meigee-search" title="Buscar"></i><strong>Buscar</strong></div>
+    <div class="block block-content">
+        <form class="form minisearch" id="search_mini_form_1143" action="https://www.specializedperu.com/catalogsearch/result/" method="get">
+            <div class="field search">
+                <label class="label" for="search_1143" data-role="minisearch-label">
+                    <span>Buscar</span>
+                </label>
+                <div class="control">
+                    <input id="search_1143"
+                           data-mage-init='{"quickSearch":{
+                                "formSelector":"#search_mini_form_1143",
+                                "url":"https://www.specializedperu.com/search/ajax/suggest/",
+                                "destinationSelector":"#search_autocomplete_1143"}
+                           }'
+                           type="text"
+                           name="q"
+                           value=""
+                           placeholder="Busque aquí por toda la tienda..."
+                           class="input-text"
+                           maxlength="128"
+                           role="combobox"
+                           aria-haspopup="false"
+                           aria-expanded="true"
+                           aria-autocomplete="both"
+                           autocomplete="off"/>
+                    <div id="search_autocomplete_1143" class="search-autocomplete"></div>
+                                    </div>
+            </div>
+            <div class="actions">
+                <button type="submit"
+                        title="Buscar"
+                        class="action search" aria-label="Search">
+                    <span>Buscar</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+ 
+    </div>
+  </div>
+</div>	</div>
+<div class="breadcrumbs">
+    <ul class="items">
+                    <li class="item home">
+                            <a href="https://www.specializedperu.com/" title="Ir a la página de inicio">Inicio</a>
+                        </li>
+                    <li class="item category251">
+                            <strong>PREVENTA</strong>
+                        </li>
+            </ul>
+</div>
+<main id="maincontent" class="page-main"><a id="contentarea" tabindex="-1"></a>
+<div class="page messages"><div data-placeholder="messages"></div>
+<div data-bind="scope: 'messages'">
+    <!-- ko if: cookieMessages && cookieMessages.length > 0 -->
+    <div role="alert" data-bind="foreach: { data: cookieMessages, as: 'message' }" class="messages">
+        <div data-bind="attr: {
+            class: 'message-' + message.type + ' ' + message.type + ' message',
+            'data-ui-id': 'message-' + message.type
+        }">
+            <div data-bind="html: message.text"></div>
+        </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: messages().messages && messages().messages.length > 0 -->
+    <div role="alert" data-bind="foreach: { data: messages().messages, as: 'message' }" class="messages">
+        <div data-bind="attr: {
+            class: 'message-' + message.type + ' ' + message.type + ' message',
+            'data-ui-id': 'message-' + message.type
+        }">
+            <div data-bind="html: message.text"></div>
+        </div>
+    </div>
+    <!-- /ko -->
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                        "messages": {
+                            "component": "Magento_Theme/js/view/messages"
+                        }
+                    }
+                }
+            }
+    }
+</script>
+</div><div class="columns"><div class="column main"><div class="page-title-wrapper">
+    <h1 class="page-title"
+         id="page-title-heading"                     aria-labelledby="page-title-heading toolbar-amount"
+        >
+        <span class="base" data-ui-id="page-title-wrapper" >PREVENTA</span>    </h1>
+    </div>
+<input name="form_key" type="hidden" value="nktRZWiOLLYn6UyD" /><div id="authenticationPopup" data-bind="scope:'authenticationPopup'" style="display: none;">
+    <script>
+        window.authenticationPopup = {"autocomplete":"off","customerRegisterUrl":"https:\/\/www.specializedperu.com\/customer\/account\/create\/","customerForgotPasswordUrl":"https:\/\/www.specializedperu.com\/customer\/account\/forgotpassword\/","baseUrl":"https:\/\/www.specializedperu.com\/"};
+    </script>
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script type="text/x-magento-init">
+        {
+            "#authenticationPopup": {
+                "Magento_Ui/js/core/app": {"components":{"authenticationPopup":{"component":"Magento_Customer\/js\/view\/authentication-popup","children":{"messages":{"component":"Magento_Ui\/js\/view\/messages","displayArea":"messages"},"captcha":{"component":"Magento_Captcha\/js\/view\/checkout\/loginCaptcha","displayArea":"additional-login-form-fields","formId":"user_login","configSource":"checkout"},"msp_recaptcha":{"component":"MSP_ReCaptcha\/js\/reCaptcha","displayArea":"additional-login-form-fields","configSource":"checkoutConfig","reCaptchaId":"msp-recaptcha-popup-login","zone":"login","badge":"inline","settings":{"siteKey":"6LeizdAZAAAAAEOWtBT2NDbFieV8sE3IJjhT62R2","size":"normal","badge":null,"theme":"light","lang":null,"enabled":{"login":true,"create":true,"forgot":true,"contact":true,"review":true,"newsletter":true,"paypal":true}}},"amazon-button":{"component":"Amazon_Login\/js\/view\/login-button-wrapper","sortOrder":"0","displayArea":"additional-login-form-fields","config":{"tooltip":"Inicia sesi\u00f3n con seguridad en tu sitio web utilizando tus credenciales de Amazon."}}}}}}            },
+            "*": {
+                "Magento_Ui/js/block-loader": "https\u003A\u002F\u002Fwww.specializedperu.com\u002Fpub\u002Fstatic\u002Ffrontend\u002FMeigee\u002Fcoccinelle\u002Fes_ES\u002Fimages\u002Floader\u002D1.gif"
+            }
+        }
+    </script>
+</div>
+<script type="text/x-magento-init">
+{"*":{"Magento_Customer\/js\/section-config":{"sections":{"stores\/store\/switch":"*","directory\/currency\/switch":"*","*":["messages"],"customer\/account\/logout":["recently_viewed_product","recently_compared_product"],"customer\/account\/loginpost":"*","customer\/account\/createpost":"*","customer\/account\/editpost":"*","customer\/ajax\/login":["checkout-data","cart","captcha"],"catalog\/product_compare\/add":["compare-products"],"catalog\/product_compare\/remove":["compare-products"],"catalog\/product_compare\/clear":["compare-products"],"sales\/guest\/reorder":["cart"],"sales\/order\/reorder":["cart"],"checkout\/cart\/add":["cart","bss-fbpixel-atc"],"checkout\/cart\/delete":["cart"],"checkout\/cart\/updatepost":["cart"],"checkout\/cart\/updateitemoptions":["cart"],"checkout\/cart\/couponpost":["cart"],"checkout\/cart\/estimatepost":["cart"],"checkout\/cart\/estimateupdatepost":["cart"],"checkout\/onepage\/saveorder":["cart","checkout-data","last-ordered-items","checkout-fields"],"checkout\/sidebar\/removeitem":["cart"],"checkout\/sidebar\/updateitemqty":["cart"],"rest\/*\/v1\/carts\/*\/payment-information":["cart","checkout-data","last-ordered-items","instant-purchase"],"rest\/*\/v1\/guest-carts\/*\/payment-information":["cart"],"rest\/*\/v1\/guest-carts\/*\/selected-payment-method":["cart","checkout-data"],"rest\/*\/v1\/carts\/*\/selected-payment-method":["cart","checkout-data","instant-purchase"],"authorizenet\/directpost_payment\/place":["cart","checkout-data"],"customer\/address\/*":["instant-purchase"],"customer\/account\/*":["instant-purchase"],"vault\/cards\/deleteaction":["instant-purchase"],"multishipping\/checkout\/overviewpost":["cart"],"paypal\/express\/placeorder":["cart","checkout-data"],"paypal\/payflowexpress\/placeorder":["cart","checkout-data"],"paypal\/express\/onauthorization":["cart","checkout-data"],"persistent\/index\/unsetcookie":["persistent"],"review\/product\/post":["review"],"braintree\/paypal\/placeorder":["cart","checkout-data"],"wishlist\/index\/add":["wishlist"],"wishlist\/index\/remove":["wishlist"],"wishlist\/index\/updateitemoptions":["wishlist"],"wishlist\/index\/update":["wishlist"],"wishlist\/index\/cart":["wishlist","cart"],"wishlist\/index\/fromcart":["wishlist","cart"],"wishlist\/index\/allcart":["wishlist","cart"],"wishlist\/shared\/allcart":["wishlist","cart"],"wishlist\/shared\/cart":["cart"],"..\/..\/instantsearchplus\/cart\/add\/product\/*":["cart","messages"],"newsletter\/subscriber\/new":["bss-fbpixel-subscribe"],"weltpixel_quickview\/index\/updatecart":["cart"]},"clientSideSections":["checkout-data","cart-data"],"baseUrls":["https:\/\/www.specializedperu.com\/","http:\/\/www.specializedperu.com\/"]}}}</script>
+<script type="text/x-magento-init">
+{"*":{"Magento_Customer\/js\/customer-data":{"sectionLoadUrl":"https:\/\/www.specializedperu.com\/customer\/section\/load\/","expirableSectionLifetime":60,"expirableSectionNames":["cart","persistent"],"cookieLifeTime":"3600","updateSessionUrl":"https:\/\/www.specializedperu.com\/customer\/account\/updateSession\/"}}}</script>
+<script type="text/x-magento-init">
+{"*":{"Magento_Customer\/js\/invalidation-processor":{"invalidationRules":{"website-rule":{"Magento_Customer\/js\/invalidation-rules\/website-rule":{"scopeConfig":{"websiteId":1}}}}}}}</script>
+<script type="text/x-magento-init">
+    {
+        "body": {
+            "pageCache": {"url":"https:\/\/www.specializedperu.com\/page_cache\/block\/render\/id\/251\/","handles":["default","catalog_category_view","catalog_category_view_type_layered","catalog_category_view_type_layered_without_children","catalog_category_view_id_251"],"originalRequest":{"route":"catalog","controller":"category","action":"view","uri":"\/preventa.html"},"versionCookieName":"private_content_version"}        }
+    }
+</script>
+
+            <div class="toolbar clearfix toolbar-products" data-mage-init='{"productListToolbarForm":{"mode":"product_list_mode","direction":"product_list_dir","order":"product_list_order","limit":"product_list_limit","modeDefault":"grid","directionDefault":"asc","orderDefault":"price","limitDefault":"24","url":"https:\/\/www.specializedperu.com\/preventa.html","formKey":"nktRZWiOLLYn6UyD","post":false}}'>
+        <div class="shop-by" id="shop-by-filter">
+    <label>Comprar por</label>
+    <button class="shop-by-button" type="button" title="Comprar por"><i class="meigee-filter"></i></button>
+</div>
+        
+    
+        
+        
+    
+    
+                    <div class="toolbar-sorter sorter">
+    <label class="sorter-label" for="sorter">Ordenar por</label>
+    <select id="sorter" data-role="sorter" class="sorter-options form-control selectpicker">
+                    <option value="position"
+                                >
+                Posición            </option>
+                    <option value="name"
+                                >
+                Nombre del producto            </option>
+                    <option value="price"
+                                    selected="selected"
+                                >
+                Precio            </option>
+                    <option value="color"
+                                >
+                Color            </option>
+                    <option value="size"
+                                >
+                Tallas            </option>
+                    <option value="material"
+                                >
+                Material            </option>
+            </select>
+            <a title="Fijar Dirección Descendente" href="#" class="action sorter-action sort-asc" data-role="direction-switcher" data-value="desc">
+            <i class="meigee-sort-down"></i>
+        </a>
+    </div>
+        
+        <div class="field limiter">
+    <label class="label" for="limiter">
+        <span>Items per page:</span>
+    </label>
+	<select id="limiter" data-role="limiter" class="limiter-options form-control selectpicker">
+					<option value="12">
+				12			</option>
+					<option value="18">
+				18			</option>
+					<option value="24"				selected="selected">
+				24			</option>
+					<option value="all">
+				Todos			</option>
+			</select>
+</div>
+        
+                    <div class="modes clearfix">
+                
+      <span data-grid-switcher="two-columns" class="grid-two-columns mobile item current"><i class="meigeeadditional-grid-2"></i></span>
+      <span data-grid-switcher="one-column" class="grid-one-column mobile item"><i class="meigeeadditional-grid-1"></i></span>
+                                                  <span data-grid-switcher="three-columns" class="grid-three-columns item current"><i class="meigeeadditional-grid-3"></i></span>
+                                                                  <span data-grid-switcher="four-columns" class="grid-four-columns item"><i class="meigeeadditional-grid-4"></i></span>
+                                                                  <span data-grid-switcher="five-columns" class="grid-five-columns item"><i class="meigeeadditional-grid-5"></i></span>
+                                        </div>
+        
+        <p class="toolbar-amount" id="toolbar-amount">
+            <span class="toolbar-number">3</span> artículos    </p>
+    </div>
+<script type="text/javascript">
+
+require( ['jquery'], function ( $ ) {
+
+	$( document ).ready( function() {
+		moveCurrentFilters();
+	} );
+
+    function moveCurrentFilters() {
+    	var bodyNode = $('body'),
+    		filterBlock = $('#layered-filter-block'),
+    		filterBlockFilterCurrent = filterBlock.find('.block-content .filter-current'),
+    		filterBlockActions = filterBlock.find('.block-content .filter-actions'),
+    		filterBlockCurrent = $('#layered-filter-block-current'),
+			toolbar = $('.toolbar.toolbar-products');
+
+        if ( ( filterBlockFilterCurrent.length || filterBlockCurrent.length ) && !bodyNode.hasClass('page-layout-1column') ) {
+
+            if ( window.matchMedia('(min-width: 768px)').matches ) {
+
+                if ( !filterBlockCurrent.length && toolbar.length ) {
+
+                    $('<div id="layered-filter-block-current" class="clearfix"/>').insertAfter( toolbar.first() );
+					filterBlockCurrent = $('#layered-filter-block-current');
+
+                }
+
+                if ( filterBlockFilterCurrent.length ) filterBlockFilterCurrent.appendTo(filterBlockCurrent);
+                if ( filterBlockActions.length ) filterBlockActions.appendTo(filterBlockCurrent);
+				!$('#layered-filter-block #narrow-by-list').length ? filterBlock.addClass('empty') : filterBlock.removeClass('empty');
+
+            } else {
+
+                if ( filterBlockCurrent.length ) {
+                    $('#layered-filter-block-current .filter-actions').appendTo('#layered-filter-block .block-content');
+                    $('#layered-filter-block-current .filter-current').prependTo('#layered-filter-block .block-content');
+                    filterBlockCurrent.remove();
+                }
+
+				filterBlock.removeClass('empty');
+
+            }
+
+        } else if ( bodyNode.hasClass('page-layout-1column') && filterBlockFilterCurrent.length ) {
+
+            if ( window.matchMedia('(min-width: 768px)').matches ) {
+
+                $('#layered-filter-block .filter-actions').appendTo('#layered-filter-block .filter-current');
+
+            } else {
+
+                $('#layered-filter-block .filter-current .filter-actions').appendTo('#layered-filter-block .block-content');
+
+            }
+
+        } else {
+
+			filterBlock.removeClass('empty');
+
+        }
+
+    }
+
+    $( window ).on( 'resize', function() {
+
+        moveCurrentFilters();
+
+    } );
+
+} );
+
+</script>    <script type="text/x-magento-init">
+    {
+        "body": {
+            "addToWishlist": {"productType":["configurable"]}        }
+    }
+</script>
+        <div class="products wrapper grid products-grid three-columns product-hover-1">
+
+                <ol class="products clearfix list items product-items row">
+            
+												<li class="item product product-item">					<div class="product-item-info clearfix" data-container="product-grid">
+						<div class="indent">
+                            <div class="image-wrapper">
+                                                                                                <a href="https://www.specializedperu.com/preventa/rockhopper-comp-29.html" class="product photo product-item-photo" tabindex="-1">
+                                    
+<span class="product-image-container"
+      style="width:610px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 100%;">
+        <img class="product-image-photo"
+            data-hover-image=""            src="https://www.specializedperu.com/pub/media/catalog/product//r/h/rh_comp_smoke_1_1.png"
+            max-width="610"
+            max-height="610"
+            alt="Rockhopper Comp 29"/></span>
+</span>
+                                </a>
+                                                                                                    <div data-role="add-to-links" class="add-to-links">
+                                                                                    <a href="#"
+                                                data-post='{"action":"https:\/\/www.specializedperu.com\/wishlist\/index\/add\/","data":{"product":"22120","uenc":"aHR0cHM6Ly93d3cuc3BlY2lhbGl6ZWRwZXJ1LmNvbS9wcmV2ZW50YS5odG1s"}}' class="action towishlist" data-action="add-to-wishlist" title="A&#xF1;adir&#x20;a&#x20;la&#x20;Lista&#x20;de&#x20;Deseos">
+                                            </a>
+                                                                            </div>
+                                                                                                                                                                    <div class="hover-buttons-toggle">
+                                        <div class="toggle-options">
+                                            <i class="meigee-options-vertical"></i>
+                                        </div>
+                                        <div class="options-block">
+                                                                                            <div data-role="add-to-links" class="add-to-links">
+                                                                                                            <a href="#"
+                                                            data-post='{"action":"https:\/\/www.specializedperu.com\/wishlist\/index\/add\/","data":{"product":"22120","uenc":"aHR0cHM6Ly93d3cuc3BlY2lhbGl6ZWRwZXJ1LmNvbS9wcmV2ZW50YS5odG1s"}}' class="action towishlist" data-action="add-to-wishlist" title="A&#xF1;adir&#x20;a&#x20;la&#x20;Lista&#x20;de&#x20;Deseos">
+                                                        </a>
+                                                                                                                                                        </div>
+                                                                                                                                                                            </div>
+                                    </div>
+                                
+                                                            </div>
+							<div class="product details product-item-details">
+
+
+
+	                            <div class="swatches-wrapper">
+	                                <div class="swatch-opt-22120"
+     data-role="swatch-option-22120"></div>
+
+<script type="text/x-magento-init">
+    {
+        "[data-role=swatch-option-22120]": {
+            "Magento_Swatches/js/swatch-renderer": {
+                "selectorProduct": ".product-item-details",
+                "onlySwatches": true,
+                "enableControlLabel": false,
+                "numberToShow": 16,
+                "jsonConfig": {"attributes":{"92":{"id":"92","code":"color","label":"Color","options":[{"id":"129","label":"Gris Oscuro","products":["22118","22119"]}],"position":"0"},"132":{"id":"132","code":"size","label":"Tallas","options":[{"id":"9","label":"M","products":["22118"]},{"id":"12","label":"L","products":["22119"]}],"position":"1"}},"template":"US$\u00a0<%- data.price %>","currencyFormat":"US$\u00a0%s","optionPrices":{"22118":{"oldPrice":{"amount":1050},"basePrice":{"amount":889.83050747458},"finalPrice":{"amount":1050},"tierPrices":[],"msrpPrice":{"amount":null}},"22119":{"oldPrice":{"amount":1050},"basePrice":{"amount":889.83050747458},"finalPrice":{"amount":1050},"tierPrices":[],"msrpPrice":{"amount":null}}},"priceFormat":{"pattern":"US$\u00a0%s","precision":0,"requiredPrecision":0,"decimalSymbol":",","groupSymbol":".","groupLength":3,"integerRequired":false},"prices":{"oldPrice":{"amount":1050},"basePrice":{"amount":889.83050747458},"finalPrice":{"amount":1050}},"productId":"22120","chooseText":"Elegir una opci\u00f3n...","images":[],"index":{"22118":{"92":"129","132":"9"},"22119":{"92":"129","132":"12"}}},
+                "jsonSwatchConfig": {"92":{"129":{"type":"1","value":"#5e5e5e","label":"Gris Oscuro"}}},
+                "mediaCallback": "https://www.specializedperu.com/swatches/ajax/media/",
+                "jsonSwatchImageSizeConfig": {"swatchImage":{"width":30,"height":20},"swatchThumb":{"height":90,"width":110}}            }
+        }
+    }
+</script>
+
+<script type="text/x-magento-init">
+    {
+        "[data-role=priceBox][data-price-box=product-id-22120]": {
+            "priceBox": {
+                "priceConfig": {
+                    "priceFormat": {"pattern":"US$\u00a0%s","precision":0,"requiredPrecision":0,"decimalSymbol":",","groupSymbol":".","groupLength":3,"integerRequired":false},
+                    "prices": {"oldPrice":{"amount":1050},"basePrice":{"amount":889.83050747458},"finalPrice":{"amount":1050}}                }
+            }
+        }
+    }
+</script><a class="weltpixel-quickview weltpixel_quickview_button_v2" data-quickview-url=https://www.specializedperu.com/weltpixel_quickview/catalog_product/view/id/22120/ href="javascript:void(0);"><span>Quickview</span></a>	                            </div>
+
+                                	                                <strong class="product name product-item-name text-center">
+	                                    <a class="product-item-link"
+	                                       href="https://www.specializedperu.com/preventa/rockhopper-comp-29.html">
+	                                        Rockhopper Comp 29	                                    </a>
+	                                </strong>
+                                                                
+                                                                    <div class="price-box price-final_price" data-role="priceBox" data-product-id="22120" data-price-box="product-id-22120">
+<span class="normal-price">
+    
+
+<span class="price-container price-final_price tax weee"
+        >
+            <span class="price-label">Tan bajo como</span>
+        <span  id="price-including-tax-product-price-22120"        data-label="Impuestos incl."        data-price-amount="1050"
+        data-price-type="finalPrice"
+        class="price-wrapper price-including-tax"
+    ><span class="price">US$ 1.050</span></span>
+            
+
+    <span id="price-excluding-tax-product-price-22120"
+          data-label="Impuestos NO Incl."
+          data-price-amount="889.83050747458"
+          data-price-type="basePrice"
+          class="price-wrapper price-excluding-tax">
+        <span class="price">US$ 890</span></span>
+        </span>
+</span>
+
+
+</div>                                                                                                
+	                            	                            <div class="product-item-inner">
+	                                 	                            </div>
+
+
+                                                                    <div class="mobile-action-buttons clearfix">
+                                                                                                                                                                            <div data-role="add-to-links" class="add-to-links">
+                                                    <a href="#"
+                                                        data-post='{"action":"https:\/\/www.specializedperu.com\/wishlist\/index\/add\/","data":{"product":"22120","uenc":"aHR0cHM6Ly93d3cuc3BlY2lhbGl6ZWRwZXJ1LmNvbS9wcmV2ZW50YS5odG1s"}}' class="action towishlist" data-action="add-to-wishlist" title="A&#xF1;adir&#x20;a&#x20;la&#x20;Lista&#x20;de&#x20;Deseos">
+                                                    </a>
+                                                </div>
+                                                                                                                                                                    </div>
+                                
+	                            								</div>
+							</div>
+						</div>
+														</li><li class="item product product-item">					<div class="product-item-info clearfix" data-container="product-grid">
+						<div class="indent">
+                            <div class="image-wrapper">
+                                                                        <div class="more-views owl-carousel owl-theme">
+                                                                                                                                                <a href="https://www.specializedperu.com/preventa/rockhopper-expert-29.html" class="first">
+                                                        
+<span class="product-image-container"
+      style="width:610px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 100%;">
+        <img class="product-image-photo"
+            data-hover-image=""            src="https://www.specializedperu.com/pub/media/catalog/product//r/h/rh_expert_green.jpg"
+            max-width="610"
+            max-height="610"
+            alt="Rockhopper Expert 29"/></span>
+</span>
+                                                    </a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                    <a href="https://www.specializedperu.com/preventa/rockhopper-expert-29.html">
+                                                        <img src="#" data-src="https://www.specializedperu.com/pub/media/catalog/product/cache/f9ceabd08ac1d07931e98c783fdfc682/r/h/rh_expert_silver_1.jpg" alt="product-image">
+                                                    </a>
+                                                                                                                                    </div>
+                                                                                                    <a href="https://www.specializedperu.com/preventa/rockhopper-expert-29.html" class="product photo product-item-photo" tabindex="-1">
+                                    
+<span class="product-image-container"
+      style="width:610px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 100%;">
+        <img class="product-image-photo"
+            data-hover-image=""            src="https://www.specializedperu.com/pub/media/catalog/product//r/h/rh_expert_green.jpg"
+            max-width="610"
+            max-height="610"
+            alt="Rockhopper Expert 29"/></span>
+</span>
+                                </a>
+                                                                                                    <div data-role="add-to-links" class="add-to-links">
+                                                                                    <a href="#"
+                                                data-post='{"action":"https:\/\/www.specializedperu.com\/wishlist\/index\/add\/","data":{"product":"22327","uenc":"aHR0cHM6Ly93d3cuc3BlY2lhbGl6ZWRwZXJ1LmNvbS9wcmV2ZW50YS5odG1s"}}' class="action towishlist" data-action="add-to-wishlist" title="A&#xF1;adir&#x20;a&#x20;la&#x20;Lista&#x20;de&#x20;Deseos">
+                                            </a>
+                                                                            </div>
+                                                                                                                                                                    <div class="hover-buttons-toggle">
+                                        <div class="toggle-options">
+                                            <i class="meigee-options-vertical"></i>
+                                        </div>
+                                        <div class="options-block">
+                                                                                            <div data-role="add-to-links" class="add-to-links">
+                                                                                                            <a href="#"
+                                                            data-post='{"action":"https:\/\/www.specializedperu.com\/wishlist\/index\/add\/","data":{"product":"22327","uenc":"aHR0cHM6Ly93d3cuc3BlY2lhbGl6ZWRwZXJ1LmNvbS9wcmV2ZW50YS5odG1s"}}' class="action towishlist" data-action="add-to-wishlist" title="A&#xF1;adir&#x20;a&#x20;la&#x20;Lista&#x20;de&#x20;Deseos">
+                                                        </a>
+                                                                                                                                                        </div>
+                                                                                                                                                                            </div>
+                                    </div>
+                                
+                                                            </div>
+							<div class="product details product-item-details">
+
+
+
+	                            <div class="swatches-wrapper">
+	                                <div class="swatch-opt-22327"
+     data-role="swatch-option-22327"></div>
+
+<script type="text/x-magento-init">
+    {
+        "[data-role=swatch-option-22327]": {
+            "Magento_Swatches/js/swatch-renderer": {
+                "selectorProduct": ".product-item-details",
+                "onlySwatches": true,
+                "enableControlLabel": false,
+                "numberToShow": 16,
+                "jsonConfig": {"attributes":{"92":{"id":"92","code":"color","label":"Color","options":[{"id":"219","label":"Plata","products":["22321","22322","22323"]}],"position":"0"},"132":{"id":"132","code":"size","label":"Tallas","options":[{"id":"8","label":"S","products":["22321"]},{"id":"9","label":"M","products":["22322"]},{"id":"12","label":"L","products":["22323"]}],"position":"1"}},"template":"US$\u00a0<%- data.price %>","currencyFormat":"US$\u00a0%s","optionPrices":{"22321":{"oldPrice":{"amount":1500},"basePrice":{"amount":1271.186439678},"finalPrice":{"amount":1500},"tierPrices":[],"msrpPrice":{"amount":null}},"22322":{"oldPrice":{"amount":1500},"basePrice":{"amount":1271.186439678},"finalPrice":{"amount":1500},"tierPrices":[],"msrpPrice":{"amount":null}},"22323":{"oldPrice":{"amount":1500},"basePrice":{"amount":1271.186439678},"finalPrice":{"amount":1500},"tierPrices":[],"msrpPrice":{"amount":null}}},"priceFormat":{"pattern":"US$\u00a0%s","precision":0,"requiredPrecision":0,"decimalSymbol":",","groupSymbol":".","groupLength":3,"integerRequired":false},"prices":{"oldPrice":{"amount":1500},"basePrice":{"amount":1271.186439678},"finalPrice":{"amount":1500}},"productId":"22327","chooseText":"Elegir una opci\u00f3n...","images":[],"index":{"22321":{"92":"219","132":"8"},"22322":{"92":"219","132":"9"},"22323":{"92":"219","132":"12"}}},
+                "jsonSwatchConfig": {"92":{"219":{"type":"2","value":"https:\/\/www.specializedperu.com\/pub\/media\/attribute\/swatch\/swatch_image\/30x20\/p\/l\/plata.png","thumb":"https:\/\/www.specializedperu.com\/pub\/media\/attribute\/swatch\/swatch_thumb\/110x90\/p\/l\/plata.png","label":"Plata"}}},
+                "mediaCallback": "https://www.specializedperu.com/swatches/ajax/media/",
+                "jsonSwatchImageSizeConfig": {"swatchImage":{"width":30,"height":20},"swatchThumb":{"height":90,"width":110}}            }
+        }
+    }
+</script>
+
+<script type="text/x-magento-init">
+    {
+        "[data-role=priceBox][data-price-box=product-id-22327]": {
+            "priceBox": {
+                "priceConfig": {
+                    "priceFormat": {"pattern":"US$\u00a0%s","precision":0,"requiredPrecision":0,"decimalSymbol":",","groupSymbol":".","groupLength":3,"integerRequired":false},
+                    "prices": {"oldPrice":{"amount":1500},"basePrice":{"amount":1271.186439678},"finalPrice":{"amount":1500}}                }
+            }
+        }
+    }
+</script><a class="weltpixel-quickview weltpixel_quickview_button_v2" data-quickview-url=https://www.specializedperu.com/weltpixel_quickview/catalog_product/view/id/22327/ href="javascript:void(0);"><span>Quickview</span></a>	                            </div>
+
+                                	                                <strong class="product name product-item-name text-center">
+	                                    <a class="product-item-link"
+	                                       href="https://www.specializedperu.com/preventa/rockhopper-expert-29.html">
+	                                        Rockhopper Expert 29	                                    </a>
+	                                </strong>
+                                                                
+                                                                    <div class="price-box price-final_price" data-role="priceBox" data-product-id="22327" data-price-box="product-id-22327">
+<span class="normal-price">
+    
+
+<span class="price-container price-final_price tax weee"
+        >
+            <span class="price-label">Tan bajo como</span>
+        <span  id="price-including-tax-product-price-22327"        data-label="Impuestos incl."        data-price-amount="1500"
+        data-price-type="finalPrice"
+        class="price-wrapper price-including-tax"
+    ><span class="price">US$ 1.500</span></span>
+            
+
+    <span id="price-excluding-tax-product-price-22327"
+          data-label="Impuestos NO Incl."
+          data-price-amount="1271.186439678"
+          data-price-type="basePrice"
+          class="price-wrapper price-excluding-tax">
+        <span class="price">US$ 1.271</span></span>
+        </span>
+</span>
+
+
+</div>                                                                                                
+	                            	                            <div class="product-item-inner">
+	                                 	                            </div>
+
+
+                                                                    <div class="mobile-action-buttons clearfix">
+                                                                                                                                                                            <div data-role="add-to-links" class="add-to-links">
+                                                    <a href="#"
+                                                        data-post='{"action":"https:\/\/www.specializedperu.com\/wishlist\/index\/add\/","data":{"product":"22327","uenc":"aHR0cHM6Ly93d3cuc3BlY2lhbGl6ZWRwZXJ1LmNvbS9wcmV2ZW50YS5odG1s"}}' class="action towishlist" data-action="add-to-wishlist" title="A&#xF1;adir&#x20;a&#x20;la&#x20;Lista&#x20;de&#x20;Deseos">
+                                                    </a>
+                                                </div>
+                                                                                                                                                                    </div>
+                                
+	                            								</div>
+							</div>
+						</div>
+														</li><li class="item product product-item">					<div class="product-item-info clearfix" data-container="product-grid">
+						<div class="indent">
+                            <div class="image-wrapper">
+                                                                                                <a href="https://www.specializedperu.com/preventa/chisel.html" class="product photo product-item-photo" tabindex="-1">
+                                    
+<span class="product-image-container"
+      style="width:610px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 100%;">
+        <img class="product-image-photo"
+            data-hover-image=""            src="https://www.specializedperu.com/pub/media/catalog/product//c/h/chisel.jpeg"
+            max-width="610"
+            max-height="610"
+            alt="Chisel"/></span>
+</span>
+                                </a>
+                                                                                                    <div data-role="add-to-links" class="add-to-links">
+                                                                                    <a href="#"
+                                                data-post='{"action":"https:\/\/www.specializedperu.com\/wishlist\/index\/add\/","data":{"product":"22427","uenc":"aHR0cHM6Ly93d3cuc3BlY2lhbGl6ZWRwZXJ1LmNvbS9wcmV2ZW50YS5odG1s"}}' class="action towishlist" data-action="add-to-wishlist" title="A&#xF1;adir&#x20;a&#x20;la&#x20;Lista&#x20;de&#x20;Deseos">
+                                            </a>
+                                                                            </div>
+                                                                                                                                                                    <div class="hover-buttons-toggle">
+                                        <div class="toggle-options">
+                                            <i class="meigee-options-vertical"></i>
+                                        </div>
+                                        <div class="options-block">
+                                                                                            <div data-role="add-to-links" class="add-to-links">
+                                                                                                            <a href="#"
+                                                            data-post='{"action":"https:\/\/www.specializedperu.com\/wishlist\/index\/add\/","data":{"product":"22427","uenc":"aHR0cHM6Ly93d3cuc3BlY2lhbGl6ZWRwZXJ1LmNvbS9wcmV2ZW50YS5odG1s"}}' class="action towishlist" data-action="add-to-wishlist" title="A&#xF1;adir&#x20;a&#x20;la&#x20;Lista&#x20;de&#x20;Deseos">
+                                                        </a>
+                                                                                                                                                        </div>
+                                                                                                                                                                            </div>
+                                    </div>
+                                
+                                                            </div>
+							<div class="product details product-item-details">
+
+
+
+	                            <div class="swatches-wrapper">
+	                                <div class="swatch-opt-22427"
+     data-role="swatch-option-22427"></div>
+
+<script type="text/x-magento-init">
+    {
+        "[data-role=swatch-option-22427]": {
+            "Magento_Swatches/js/swatch-renderer": {
+                "selectorProduct": ".product-item-details",
+                "onlySwatches": true,
+                "enableControlLabel": false,
+                "numberToShow": 16,
+                "jsonConfig": {"attributes":{"92":{"id":"92","code":"color","label":"Color","options":[{"id":"129","label":"Gris Oscuro","products":["22424","22425","22426"]}],"position":"0"},"132":{"id":"132","code":"size","label":"Tallas","options":[{"id":"8","label":"S","products":["22424"]},{"id":"9","label":"M","products":["22425"]},{"id":"12","label":"L","products":["22426"]}],"position":"1"}},"template":"US$\u00a0<%- data.price %>","currencyFormat":"US$\u00a0%s","optionPrices":{"22424":{"oldPrice":{"amount":1749},"basePrice":{"amount":1482.2033888305},"finalPrice":{"amount":1749},"tierPrices":[],"msrpPrice":{"amount":null}},"22425":{"oldPrice":{"amount":1749},"basePrice":{"amount":1482.2033888305},"finalPrice":{"amount":1749},"tierPrices":[],"msrpPrice":{"amount":null}},"22426":{"oldPrice":{"amount":1749},"basePrice":{"amount":1482.2033888305},"finalPrice":{"amount":1749},"tierPrices":[],"msrpPrice":{"amount":null}}},"priceFormat":{"pattern":"US$\u00a0%s","precision":0,"requiredPrecision":0,"decimalSymbol":",","groupSymbol":".","groupLength":3,"integerRequired":false},"prices":{"oldPrice":{"amount":1749},"basePrice":{"amount":1482.2033888305},"finalPrice":{"amount":1749}},"productId":"22427","chooseText":"Elegir una opci\u00f3n...","images":[],"index":{"22424":{"92":"129","132":"8"},"22425":{"92":"129","132":"9"},"22426":{"92":"129","132":"12"}}},
+                "jsonSwatchConfig": {"92":{"129":{"type":"1","value":"#5e5e5e","label":"Gris Oscuro"}}},
+                "mediaCallback": "https://www.specializedperu.com/swatches/ajax/media/",
+                "jsonSwatchImageSizeConfig": {"swatchImage":{"width":30,"height":20},"swatchThumb":{"height":90,"width":110}}            }
+        }
+    }
+</script>
+
+<script type="text/x-magento-init">
+    {
+        "[data-role=priceBox][data-price-box=product-id-22427]": {
+            "priceBox": {
+                "priceConfig": {
+                    "priceFormat": {"pattern":"US$\u00a0%s","precision":0,"requiredPrecision":0,"decimalSymbol":",","groupSymbol":".","groupLength":3,"integerRequired":false},
+                    "prices": {"oldPrice":{"amount":1749},"basePrice":{"amount":1482.2033888305},"finalPrice":{"amount":1749}}                }
+            }
+        }
+    }
+</script><a class="weltpixel-quickview weltpixel_quickview_button_v2" data-quickview-url=https://www.specializedperu.com/weltpixel_quickview/catalog_product/view/id/22427/ href="javascript:void(0);"><span>Quickview</span></a>	                            </div>
+
+                                	                                <strong class="product name product-item-name text-center">
+	                                    <a class="product-item-link"
+	                                       href="https://www.specializedperu.com/preventa/chisel.html">
+	                                        Chisel	                                    </a>
+	                                </strong>
+                                                                
+                                                                    <div class="price-box price-final_price" data-role="priceBox" data-product-id="22427" data-price-box="product-id-22427">
+<span class="normal-price">
+    
+
+<span class="price-container price-final_price tax weee"
+        >
+            <span class="price-label">Tan bajo como</span>
+        <span  id="price-including-tax-product-price-22427"        data-label="Impuestos incl."        data-price-amount="1749"
+        data-price-type="finalPrice"
+        class="price-wrapper price-including-tax"
+    ><span class="price">US$ 1.749</span></span>
+            
+
+    <span id="price-excluding-tax-product-price-22427"
+          data-label="Impuestos NO Incl."
+          data-price-amount="1482.2033888305"
+          data-price-type="basePrice"
+          class="price-wrapper price-excluding-tax">
+        <span class="price">US$ 1.482</span></span>
+        </span>
+</span>
+
+
+</div>                                                                                                
+	                            	                            <div class="product-item-inner">
+	                                 	                            </div>
+
+
+                                                                    <div class="mobile-action-buttons clearfix">
+                                                                                                                                                                            <div data-role="add-to-links" class="add-to-links">
+                                                    <a href="#"
+                                                        data-post='{"action":"https:\/\/www.specializedperu.com\/wishlist\/index\/add\/","data":{"product":"22427","uenc":"aHR0cHM6Ly93d3cuc3BlY2lhbGl6ZWRwZXJ1LmNvbS9wcmV2ZW50YS5odG1s"}}' class="action towishlist" data-action="add-to-wishlist" title="A&#xF1;adir&#x20;a&#x20;la&#x20;Lista&#x20;de&#x20;Deseos">
+                                                    </a>
+                                                </div>
+                                                                                                                                                                    </div>
+                                
+	                            								</div>
+							</div>
+						</div>
+					</li>							        </ol>
+    </div>
+	<div class="toolbar-bottom">
+		    <div class="toolbar clearfix toolbar-products" data-mage-init='{"productListToolbarForm":{"mode":"product_list_mode","direction":"product_list_dir","order":"product_list_order","limit":"product_list_limit","modeDefault":"grid","directionDefault":"asc","orderDefault":"price","limitDefault":"24","url":"https:\/\/www.specializedperu.com\/preventa.html","formKey":"nktRZWiOLLYn6UyD","post":false}}'>
+        <div class="shop-by" id="shop-by-filter">
+    <label>Comprar por</label>
+    <button class="shop-by-button" type="button" title="Comprar por"><i class="meigee-filter"></i></button>
+</div>
+        
+    
+        
+        
+    
+    
+                    <div class="toolbar-sorter sorter">
+    <label class="sorter-label" for="sorter">Ordenar por</label>
+    <select id="sorter" data-role="sorter" class="sorter-options form-control selectpicker">
+                    <option value="position"
+                                >
+                Posición            </option>
+                    <option value="name"
+                                >
+                Nombre del producto            </option>
+                    <option value="price"
+                                    selected="selected"
+                                >
+                Precio            </option>
+                    <option value="color"
+                                >
+                Color            </option>
+                    <option value="size"
+                                >
+                Tallas            </option>
+                    <option value="material"
+                                >
+                Material            </option>
+            </select>
+            <a title="Fijar Dirección Descendente" href="#" class="action sorter-action sort-asc" data-role="direction-switcher" data-value="desc">
+            <i class="meigee-sort-down"></i>
+        </a>
+    </div>
+        
+        <div class="field limiter">
+    <label class="label" for="limiter">
+        <span>Items per page:</span>
+    </label>
+	<select id="limiter" data-role="limiter" class="limiter-options form-control selectpicker">
+					<option value="12">
+				12			</option>
+					<option value="18">
+				18			</option>
+					<option value="24"				selected="selected">
+				24			</option>
+					<option value="all">
+				Todos			</option>
+			</select>
+</div>
+        
+                    <div class="modes clearfix">
+                
+      <span data-grid-switcher="two-columns" class="grid-two-columns mobile item current"><i class="meigeeadditional-grid-2"></i></span>
+      <span data-grid-switcher="one-column" class="grid-one-column mobile item"><i class="meigeeadditional-grid-1"></i></span>
+                                                  <span data-grid-switcher="three-columns" class="grid-three-columns item current"><i class="meigeeadditional-grid-3"></i></span>
+                                                                  <span data-grid-switcher="four-columns" class="grid-four-columns item"><i class="meigeeadditional-grid-4"></i></span>
+                                                                  <span data-grid-switcher="five-columns" class="grid-five-columns item"><i class="meigeeadditional-grid-5"></i></span>
+                                        </div>
+        
+        <p class="toolbar-amount" id="toolbar-amount">
+            <span class="toolbar-number">3</span> artículos    </p>
+    </div>
+<script type="text/javascript">
+
+require( ['jquery'], function ( $ ) {
+
+	$( document ).ready( function() {
+		moveCurrentFilters();
+	} );
+
+    function moveCurrentFilters() {
+    	var bodyNode = $('body'),
+    		filterBlock = $('#layered-filter-block'),
+    		filterBlockFilterCurrent = filterBlock.find('.block-content .filter-current'),
+    		filterBlockActions = filterBlock.find('.block-content .filter-actions'),
+    		filterBlockCurrent = $('#layered-filter-block-current'),
+			toolbar = $('.toolbar.toolbar-products');
+
+        if ( ( filterBlockFilterCurrent.length || filterBlockCurrent.length ) && !bodyNode.hasClass('page-layout-1column') ) {
+
+            if ( window.matchMedia('(min-width: 768px)').matches ) {
+
+                if ( !filterBlockCurrent.length && toolbar.length ) {
+
+                    $('<div id="layered-filter-block-current" class="clearfix"/>').insertAfter( toolbar.first() );
+					filterBlockCurrent = $('#layered-filter-block-current');
+
+                }
+
+                if ( filterBlockFilterCurrent.length ) filterBlockFilterCurrent.appendTo(filterBlockCurrent);
+                if ( filterBlockActions.length ) filterBlockActions.appendTo(filterBlockCurrent);
+				!$('#layered-filter-block #narrow-by-list').length ? filterBlock.addClass('empty') : filterBlock.removeClass('empty');
+
+            } else {
+
+                if ( filterBlockCurrent.length ) {
+                    $('#layered-filter-block-current .filter-actions').appendTo('#layered-filter-block .block-content');
+                    $('#layered-filter-block-current .filter-current').prependTo('#layered-filter-block .block-content');
+                    filterBlockCurrent.remove();
+                }
+
+				filterBlock.removeClass('empty');
+
+            }
+
+        } else if ( bodyNode.hasClass('page-layout-1column') && filterBlockFilterCurrent.length ) {
+
+            if ( window.matchMedia('(min-width: 768px)').matches ) {
+
+                $('#layered-filter-block .filter-actions').appendTo('#layered-filter-block .filter-current');
+
+            } else {
+
+                $('#layered-filter-block .filter-current .filter-actions').appendTo('#layered-filter-block .block-content');
+
+            }
+
+        } else {
+
+			filterBlock.removeClass('empty');
+
+        }
+
+    }
+
+    $( window ).on( 'resize', function() {
+
+        moveCurrentFilters();
+
+    } );
+
+} );
+
+</script>	</div>
+    
+	<script type="text/x-magento-init">
+		{
+			"*": {
+				"Meigee_Coccinelle/js/theme_listing_helper": {
+					"customSwitcher": "1"
+				}
+			}
+		}
+	</script>
+<script type="text/x-magento-init">
+    {
+        "body": {
+            "requireCookie": {"noCookieUrl":"https:\/\/www.specializedperu.com\/cookie\/index\/noCookies\/","triggers":[".action.towishlist"]}        }
+    }
+</script>
+</div><div class="sidebar sidebar-main">    <div class="block filter default-open" id="layered-filter-block">
+                <div class="block-title filter-title" data-count="0">
+            <strong data-role="title">Comprar por</strong>
+        </div>
+        <div class="block-content filter-content clearfix">
+            
+                                                                                                                                                                                                    <strong role="heading" aria-level="2" class="block-subtitle filter-subtitle">Comprar por</strong>
+                        <div class="filter-options" id="narrow-by-list" data-role="content" >
+                                        <div data-role="collapsible" class="filter-options-item">
+                        <div data-role="title" class="filter-options-title">Precio</div>
+                        <div data-role="content" class="filter-options-content">
+<ol class="items">
+            <li class="item">
+                            <a href="https://www.specializedperu.com/preventa.html?price=1000-1100">
+                    <span class="filter-label"><span class="price">US$ 1.000</span> - <span class="price">US$ 1.100</span></span>
+                                            <span class="count">1<span class="filter-count-label">
+                             artículo</span></span>
+                                    </a>
+                    </li>
+            <li class="item">
+                            <a href="https://www.specializedperu.com/preventa.html?price=1500-1600">
+                    <span class="filter-label"><span class="price">US$ 1.500</span> - <span class="price">US$ 1.600</span></span>
+                                            <span class="count">1<span class="filter-count-label">
+                             artículo</span></span>
+                                    </a>
+                    </li>
+            <li class="item">
+                            <a href="https://www.specializedperu.com/preventa.html?price=1700-">
+                    <span class="filter-label"><span class="price">US$ 1.700</span> y superior</span>
+                                            <span class="count">1<span class="filter-count-label">
+                             artículo</span></span>
+                                    </a>
+                    </li>
+    </ol>
+</div>
+                    </div>
+                                                                                                                                                                                                    <div data-role="collapsible" class="filter-options-item">
+                        <div data-role="title" class="filter-options-title">Tallas</div>
+                        <div data-role="content" class="filter-options-content">
+<ol class="items">
+            <li class="item">
+                            <a href="https://www.specializedperu.com/preventa.html?size=8">
+                    <span class="filter-label">S</span>
+                                            <span class="count">2<span class="filter-count-label">
+                             artículos</span></span>
+                                    </a>
+                    </li>
+            <li class="item">
+                            <a href="https://www.specializedperu.com/preventa.html?size=9">
+                    <span class="filter-label">M</span>
+                                            <span class="count">3<span class="filter-count-label">
+                             artículos</span></span>
+                                    </a>
+                    </li>
+            <li class="item">
+                            <a href="https://www.specializedperu.com/preventa.html?size=12">
+                    <span class="filter-label">L</span>
+                                            <span class="count">3<span class="filter-count-label">
+                             artículos</span></span>
+                                    </a>
+                    </li>
+    </ol>
+</div>
+                    </div>
+                                                                                    <div data-role="collapsible" class="filter-options-item">
+                        <div data-role="title" class="filter-options-title">Color</div>
+                        <div data-role="content" class="filter-options-content"><div class="swatch-attribute swatch-layered color"
+     attribute-code="color"
+     attribute-id="92">
+    <div class="swatch-attribute-options clearfix">
+                    <a href="https://www.specializedperu.com/preventa.html?color=129"
+               aria-label="Gris Oscuro"
+               class="swatch-option-link-layered">
+                                                                <div class="swatch-option color "
+                                 tabindex="-1"
+                                 option-type="1"
+                                 option-id="129"
+                                 option-label="Gris Oscuro"
+                                 option-tooltip-thumb=""
+                                 option-tooltip-value="#5e5e5e"
+                                 style="background: #5e5e5e no-repeat center; background-size: initial;"></div>
+                                                        </a>
+                    <a href="https://www.specializedperu.com/preventa.html?color=219"
+               aria-label="Plata"
+               class="swatch-option-link-layered">
+                                                                                                                        <div class="swatch-option image "
+                                 tabindex="-1"
+                                 option-type="2"
+                                 option-id="219"
+                                 option-label="Plata"
+                                 option-tooltip-thumb="https://www.specializedperu.com/pub/media/attribute/swatch/swatch_thumb/110x90/p/l/plata.png"
+                                 option-tooltip-value=""
+                                 style="background: url(https://www.specializedperu.com/pub/media/attribute/swatch/swatch_image/30x20/p/l/plata.png) no-repeat center; background-size: initial;"></div>
+                                                        </a>
+            </div>
+</div>
+
+<script>
+    require(["jquery", "jquery/ui", "Magento_Swatches/js/swatch-renderer"], function ($) {
+        $('.swatch-layered.color')
+            .find('[option-type="1"], [option-type="2"], [option-type="0"], [option-type="3"]')
+            .SwatchRendererTooltip();
+    });
+</script>
+</div>
+                    </div>
+                                                                                    </div>
+                                </div>
+    </div>
+</div><div class="sidebar sidebar-additional"><div class="block block-compare" data-bind="scope: 'compareProducts'" data-role="compare-products-sidebar">
+    <div class="block-title">
+        <strong id="block-compare-heading" role="heading" aria-level="2">Comparar productos</strong>
+        <span class="counter qty no-display" data-bind="text: compareProducts().countCaption, css: {'no-display': !compareProducts().count}"></span>
+    </div>
+    <!-- ko if: compareProducts().count -->
+    <div class="block-content no-display" aria-labelledby="block-compare-heading" data-bind="css: {'no-display': !compareProducts().count}">
+        <ol id="compare-items" class="product-items product-items-names" data-bind="foreach: compareProducts().items">
+                <li class="product-item">
+                    <input type="hidden" class="compare-item-id" data-bind="value: id"/>
+                    <strong class="product-item-name">
+                        <a data-bind="attr: {href: product_url}, html: name" class="product-item-link"></a>
+                    </strong>
+                    <a href="#" data-bind="attr: {'data-post': remove_url}" title="Eliminar este artículo" class="action delete">
+                        <span>Eliminar este artículo</span>
+                    </a>
+                </li>
+        </ol>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <a data-bind="attr: {'href': compareProducts().listUrl}" class="action compare primary"><span>Comparar</span></a>
+            </div>
+            <div class="secondary">
+                <a id="compare-clear-all" href="#" class="action clear" data-post="{&quot;action&quot;:&quot;https:\/\/www.specializedperu.com\/catalog\/product_compare\/clear\/&quot;,&quot;data&quot;:{&quot;uenc&quot;:&quot;&quot;,&quot;confirmation&quot;:true,&quot;confirmationMessage&quot;:&quot;\u00bfEst\u00e1 seguro que desea eliminar todos los elementos de la lista de productos a comparar?&quot;}}">
+                    <span>Eliminar todo</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko ifnot: compareProducts().count -->
+    <div class="empty">No tiene ningún artículo para comparar.</div>
+    <!-- /ko -->
+</div>
+<script type="text/x-magento-init">
+{"[data-role=compare-products-sidebar]": {"Magento_Ui/js/core/app": {"components":{"compareProducts":{"component":"Magento_Catalog\/js\/view\/compare-products"}}}}}
+</script>
+    <div class="block block-wishlist" data-bind="scope: 'wishlist'">
+        <div class="block-title">
+            <strong role="heading" aria-level="2">Mi lista de deseos</strong>
+            <!-- ko if: wishlist().counter -->
+            <span data-bind="text: wishlist().counter" class="counter"></span>
+            <!-- /ko -->
+        </div>
+        <div class="block-content">
+            <strong class="subtitle">Últimos elementos añadidos</strong>
+            <!-- ko if: wishlist().counter -->
+                <ol class="product-items no-display" id="wishlist-sidebar" data-bind="foreach: wishlist().items, css: {'no-display': null}">
+                    <li class="product-item">
+                        <div class="product-item-info">
+                            <a class="product-item-photo" data-bind="attr: { href: product_url, title: product_name }">
+                                <!-- ko template: {name: $data.image.template, data: $data.image} --><!-- /ko -->
+                            </a>
+                            <div class="product-item-details">
+                                <strong class="product-item-name">
+                                    <a data-bind="attr: { href: product_url }" class="product-item-link">
+                                        <span data-bind="html: product_name"></span>
+                                    </a>
+                                </strong>
+                                <div data-bind="html: product_price"></div>
+                                <div class="product-item-actions">
+                                    <!-- ko if: product_is_saleable_and_visible -->
+                                    <div class="actions-primary">
+                                        <!-- ko if: product_has_required_options -->
+                                        <a href="#" data-bind="attr: {'data-post': add_to_cart_params}" class="action tocart primary"><span>Añadir al carrito</span></a>
+                                        <!-- /ko -->
+                                        <!-- ko ifnot: product_has_required_options -->
+                                            <button type="button" class="action tocart primary" data-bind="attr: {'data-post': add_to_cart_params}"><span>Añadir al carrito</span></button>
+                                        <!-- /ko -->
+                                    </div>
+                                    <!-- /ko -->
+                                    <div class="actions-secondary">
+                                        <a href="#"  data-bind="attr: {'data-post': delete_item_params}"
+                                           title="Eliminar&#x20;este&#x20;art&#xED;culo"
+                                           class="btn-remove action delete">
+                                            <span>Eliminar este artículo</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+                <div class="actions-toolbar no-display" data-bind="css: {'no-display': null}">
+                    <div class="primary">
+                        <a class="action details"
+                           href="https://www.specializedperu.com/wishlist/"
+                           title="Ir&#x20;a&#x20;lista&#x20;de&#x20;deseos"><span>Ir a lista de deseos</span></a>
+                    </div>
+                </div>
+            <!-- /ko -->
+            <!-- ko ifnot: wishlist().counter -->
+                <div class="empty">No tiene ningún elemento en su lista de deseos.</div>
+            <!-- /ko -->
+        </div>
+    </div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "wishlist": {
+                        "component": "Magento_Wishlist/js/view/wishlist"
+                    }
+                }
+            }
+        }
+    }
+</script>
+
+
+	<div class="block block-fblikebox">
+		<div class="block-title">
+			 <strong><span>Facebook Like Box</span></strong>
+		</div>
+		<div class="block-content">
+			<div id="fb-root"></div>
+			<script>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/en_EN/sdk.js#xfbml=1&version=v2.3";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));</script>
+			<div class="fb-page" data-width="300" data-height="340" data-href="https://www.facebook.com/specializedperu" data-show-facepile="1" data-small-header="0" data-adapt-container-width="1" data-hide-cover="0" data-show-posts="1"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/specializedperu"><a href="https://www.facebook.com/specializedperu">&nbsp;</a></blockquote></div></div>
+		</div>
+	</div>
+</div></div></main>
+<div class="mobile-menu-wrapper">
+	        <div class="sections nav-sections">
+                <div class="section-items nav-sections-items" data-mage-init='{"tabs":{"openedState":"active"}}'>
+                                                            <div class="section-item-content" id="mobile_store_menu" data-role="content"><div class="item-container">
+<nav class="navbar navbar-default navigation">
+	<div class="collapse topmenu navbar-collapse" data-action="navigation">
+		<ul class="nav topmenu navbar-nav type-2" id="mobile-nav" data-mage-init='{"mobile_menu":{"responsive":true, "expanded":true, "delay": 0, "position":{"my":"left top","at":"left bottom"}}}'>
+			<li  class="level0 nav-1 category-item first level-top parent"><a href="https://www.specializedperu.com/catalog/category/view/s/bicicletas/id/467/"  class="level-top" > <span>BICICLETAS</span></a><a href="javascript: void(0);" class="level-top action-link"> <span>BICICLETAS</span></a><div class="megamenu-wrapper"  data-columns="5"><div class="megamenu-center-block"><div class="left-column col-md-9"><ul class="level0 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/catalog/category/view/s/bicicletas/id/467/" > <span>BICICLETAS</span></a></li><li  class="level1 nav-1-1 category-item first parent"><a href="https://www.specializedperu.com/catalog/category/view/s/monta-a/id/468/"  data-bold-link="1"> <span>Montaña</span></a><a href="javascript: void(0);" class=" action-link"> <span>Montaña</span></a><ul class="level1 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/catalog/category/view/s/monta-a/id/468/"  data-bold-link="1"> <span>Montaña</span></a></li><li  class="level2 nav-1-1-1 category-item first"><a href="https://www.specializedperu.com/bicicletas/monta-a/demo.html" > <span>Demo</span></a></li><li  class="level2 nav-1-1-2 category-item"><a href="https://www.specializedperu.com/bicicletas/monta-a/epic.html" > <span>Epic</span></a></li><li  class="level2 nav-1-1-3 category-item"><a href="https://www.specializedperu.com/bicicletas/monta-a/enduro.html" > <span>Enduro</span></a></li><li  class="level2 nav-1-1-4 category-item"><a href="https://www.specializedperu.com/bicicletas/monta-a/stumpjumper.html" > <span>Stumpjumper</span></a></li><li  class="level2 nav-1-1-5 category-item"><a href="https://www.specializedperu.com/bicicletas/monta-a/rockhopper.html" > <span>Rockhopper</span></a></li><li  class="level2 nav-1-1-6 category-item last"><a href="https://www.specializedperu.com/bicicletas/monta-a/status.html" > <span>Status</span></a></li></ul></li><li  class="level1 nav-1-2 category-item parent"><a href="https://www.specializedperu.com/catalog/category/view/s/ruta/id/469/"  data-bold-link="1"> <span>Ruta</span></a><a href="javascript: void(0);" class=" action-link"> <span>Ruta</span></a><ul class="level1 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/catalog/category/view/s/ruta/id/469/"  data-bold-link="1"> <span>Ruta</span></a></li><li  class="level2 nav-1-2-1 category-item first"><a href="https://www.specializedperu.com/bicicletas/ruta/aethos.html" > <span>Aethos</span></a></li><li  class="level2 nav-1-2-2 category-item"><a href="https://www.specializedperu.com/bicicletas/ruta/allez.html" > <span>Allez</span></a></li><li  class="level2 nav-1-2-3 category-item"><a href="https://www.specializedperu.com/bicicletas/ruta/diverge.html" > <span>Diverge</span></a></li><li  class="level2 nav-1-2-4 category-item"><a href="https://www.specializedperu.com/bicicletas/ruta/roubaix.html" > <span>Roubaix</span></a></li><li  class="level2 nav-1-2-5 category-item"><a href="https://www.specializedperu.com/bicicletas/ruta/shiv.html" > <span>Shiv</span></a></li><li  class="level2 nav-1-2-6 category-item last"><a href="https://www.specializedperu.com/bicicletas/ruta/tarmac.html" > <span>Tarmac</span></a></li></ul></li><li  class="level1 nav-1-3 category-item parent"><a href="https://www.specializedperu.com/catalog/category/view/s/active/id/470/"  data-bold-link="1"> <span>Active</span></a><a href="javascript: void(0);" class=" action-link"> <span>Active</span></a><ul class="level1 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/catalog/category/view/s/active/id/470/"  data-bold-link="1"> <span>Active</span></a></li><li  class="level2 nav-1-3-1 category-item first last"><a href="https://www.specializedperu.com/bicicletas/active/roll.html" > <span>Roll</span></a></li></ul></li><li  class="level1 nav-1-4 category-item parent"><a href="https://www.specializedperu.com/bicicletas/ni-os.html"  data-bold-link="1"> <span>Niños</span></a><a href="javascript: void(0);" class=" action-link"> <span>Niños</span></a><ul class="level1 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/bicicletas/ni-os.html"  data-bold-link="1"> <span>Niños</span></a></li><li  class="level2 nav-1-4-1 category-item first"><a href="https://www.specializedperu.com/bicicletas/ni-os/hotwalk.html" > <span>Hotwalk</span></a></li><li  class="level2 nav-1-4-2 category-item last"><a href="https://www.specializedperu.com/bicicletas/ni-os/riprock.html" > <span>Riprock</span></a></li></ul></li></ul></div><div class="right-column col-md-3"><div class="widget block block-static-block">
+    <style>
+/* The dots/bullets/indicators */
+.dotbici {
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.slideshow-container .active, .dotbici:hover {
+  background-color: #717171;
+}
+
+</style>
+
+<div class="slideshow-container">
+
+<div class="mySlidesbici fade">
+  <div class="numbertext">1 / 2</div>
+  <img src="https://www.specializedperu.com/pub/media/wysiwyg/bicis-1.jpg" style="width:100%">
+  <div class="text">ROAD BIKES</div>
+</div>
+
+<div class="mySlidesbici fade">
+  <div class="numbertext">2 / 2</div>
+  <img src="https://www.specializedperu.com/pub/media/wysiwyg/bicis-2.jpg" style="width:100%">
+  <div class="text">EPIC</div>
+</div>
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dotbici" onclick="currentSlide1(1)"></span> 
+  <span class="dotbici" onclick="currentSlide1(2)"></span> 
+</div>
+
+<script>
+var slideIndexUno = 1;
+showSlides1(slideIndexUno);
+
+function plusSlides(n) {
+  showSlides1(slideIndexUno += n);
+}
+
+function currentSlide1(n) {
+  showSlides1(slideIndexUno = n);
+}
+
+function showSlides1(n) {
+  var i;
+  var slidesbici = document.getElementsByClassName("mySlidesbici");
+  var dotsbici = document.getElementsByClassName("dotbici");
+  if (n > slidesbici.length) {slideIndexUno = 1}    
+  if (n < 1) {slideIndexUno = slidesbici.length}
+  for (i = 0; i < slidesbici.length; i++) {
+      slidesbici[i].style.display = "none";  
+  }
+  for (i = 0; i < dotsbici.length; i++) {
+      dotsbici[i].className = dotsbici[i].className.replace(" active", "");
+  }
+  slidesbici[slideIndexUno-1].style.display = "block";  
+  dotsbici[slideIndexUno-1].className += " active";
+}
+</script>
+</div>
+</div></div></div></li><li  class="level0 nav-2 category-item level-top parent"><a href="https://www.specializedperu.com/turbo.html"  class="level-top" > <span>TURBO E-BIKES</span></a><a href="javascript: void(0);" class="level-top action-link"> <span>TURBO E-BIKES</span></a><div class="megamenu-wrapper"  data-columns="5"><div class="megamenu-center-block"><div class="left-column col-md-9"><ul class="level0 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/turbo.html" > <span>TURBO E-BIKES</span></a></li><li  class="level1 nav-2-1 category-item first parent"><a href="https://www.specializedperu.com/turbo/turbo-mtb.html"  data-bold-link="1"> <span>Montaña</span></a><a href="javascript: void(0);" class=" action-link"> <span>Montaña</span></a><ul class="level1 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/turbo/turbo-mtb.html"  data-bold-link="1"> <span>Montaña</span></a></li><li  class="level2 nav-2-1-1 category-item first"><a href="https://www.specializedperu.com/turbo/turbo-mtb/levo-sl.html" > <span>Levo SL</span></a></li><li  class="level2 nav-2-1-2 category-item"><a href="https://www.specializedperu.com/turbo/turbo-mtb/levo.html" > <span>Levo</span></a></li><li  class="level2 nav-2-1-3 category-item last"><a href="https://www.specializedperu.com/turbo/turbo-mtb/kenevo.html" > <span>Kenevo</span></a></li></ul></li><li  class="level1 nav-2-2 category-item parent"><a href="https://www.specializedperu.com/turbo/turbo-ruta.html"  data-bold-link="1"> <span>Ruta</span></a><a href="javascript: void(0);" class=" action-link"> <span>Ruta</span></a><ul class="level1 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/turbo/turbo-ruta.html"  data-bold-link="1"> <span>Ruta</span></a></li><li  class="level2 nav-2-2-1 category-item first last"><a href="https://www.specializedperu.com/turbo/turbo-ruta/creo.html" > <span>Creo SL</span></a></li></ul></li><li  class="level1 nav-2-3 category-item last parent"><a href="https://www.specializedperu.com/turbo/turbo-active.html"  data-bold-link="1"> <span>Active</span></a><a href="javascript: void(0);" class=" action-link"> <span>Active</span></a><ul class="level1 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/turbo/turbo-active.html"  data-bold-link="1"> <span>Active</span></a></li><li  class="level2 nav-2-3-1 category-item first"><a href="https://www.specializedperu.com/turbo/turbo-active/como.html" > <span>Como</span></a></li><li  class="level2 nav-2-3-2 category-item"><a href="https://www.specializedperu.com/turbo/turbo-active/vado.html" > <span>Vado</span></a></li><li  class="level2 nav-2-3-3 category-item last"><a href="https://www.specializedperu.com/turbo/turbo-active/vado-sl.html" > <span>Vado SL</span></a></li></ul></li></ul></div><div class="right-column col-md-3"><div class="widget block block-static-block">
+    <style>
+/* The dots/bullets/indicators */
+.dotturbo {
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.slideshow-container .active, .dotturbo:hover {
+  background-color: #717171;
+}
+
+</style>
+
+<div class="slideshow-container">
+
+<div class="mySlidesturbo fade">
+  <div class="numbertext">1 / 2</div>
+  <img src="https://www.specializedperu.com/pub/media/wysiwyg/4_1.jpg" style="width:100%">
+  <div class="text">INTRODUCIENDO TURBO CREO SL</div>
+</div>
+
+<div class="mySlidesturbo fade">
+  <div class="numbertext">2 / 2</div>
+  <img src="https://www.specializedperu.com/pub/media/wysiwyg/5_1.jpg" style="width:100%">
+  <div class="text">THE ALL-NEW TURBO LEVO</div>
+</div>
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dotturbo" onclick="currentSlide2(1)"></span> 
+  <span class="dotturbo" onclick="currentSlide2(2)"></span> 
+</div>
+
+<script>
+var slideIndexDos = 1;
+showSlides2(slideIndexDos);
+
+function plusSlides(n) {
+  showSlides2(slideIndexDos += n);
+}
+
+function currentSlide2(n) {
+  showSlides2(slideIndexDos = n);
+}
+
+function showSlides2(n) {
+  var i;
+  var slidesturbo = document.getElementsByClassName("mySlidesturbo");
+  var dotsturbo = document.getElementsByClassName("dotturbo");
+  if (n > slidesturbo.length) {slideIndexDos = 1}    
+  if (n < 1) {slideIndexDos = slidesturbo.length}
+  for (i = 0; i < slidesturbo.length; i++) {
+      slidesturbo[i].style.display = "none";  
+  }
+  for (i = 0; i < dotsturbo.length; i++) {
+      dotsturbo[i].className = dotsturbo[i].className.replace(" active", "");
+  }
+  slidesturbo[slideIndexDos-1].style.display = "block";  
+  dotsturbo[slideIndexDos-1].className += " active";
+}
+</script>
+
+
+</div>
+</div></div></div></li><li  class="level0 nav-3 category-item level-top parent"><a href="https://www.specializedperu.com/equipamiento.html"  class="level-top" > <span>EQUIPAMIENTO</span></a><a href="javascript: void(0);" class="level-top action-link"> <span>EQUIPAMIENTO</span></a><div class="megamenu-wrapper"  data-columns="7"><div class="megamenu-center-block"><div class="left-column col-md-9"><ul class="level0 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/equipamiento.html" > <span>EQUIPAMIENTO</span></a></li><li  class="level1 nav-3-1 category-item first parent"><a href="https://www.specializedperu.com/equipamiento/ropa.html"  data-bold-link="1"> <span>Ropa</span></a><a href="javascript: void(0);" class=" action-link"> <span>Ropa</span></a><ul class="level1 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/equipamiento/ropa.html"  data-bold-link="1"> <span>Ropa</span></a></li><li  class="level2 nav-3-1-1 category-item first"><a href="https://www.specializedperu.com/catalog/category/view/s/chaquetas/id/556/" > <span>Chaquetas</span></a></li><li  class="level2 nav-3-1-2 category-item"><a href="https://www.specializedperu.com/catalog/category/view/s/ropa-casual/id/580/" > <span>Ropa Casual</span></a></li><li  class="level2 nav-3-1-3 category-item"><a href="https://www.specializedperu.com/equipamiento/ropa/pantalonetas.html" > <span>Pantalonetas</span></a></li><li  class="level2 nav-3-1-4 category-item"><a href="https://www.specializedperu.com/equipamiento/ropa/ropa-casual.html" > <span>Casual</span></a></li><li  class="level2 nav-3-1-5 category-item"><a href="https://www.specializedperu.com/equipamiento/ropa/prendas-para-la-cabeza.html" > <span>Gorros</span></a></li></ul></li><li  class="level1 nav-3-2 category-item parent"><a href="https://www.specializedperu.com/equipamiento/equipo.html"  data-bold-link="1"> <span>Equipo</span></a><a href="javascript: void(0);" class=" action-link"> <span>Equipo</span></a><ul class="level1 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/equipamiento/equipo.html"  data-bold-link="1"> <span>Equipo</span></a></li><li  class="level2 nav-3-2-1 category-item first"><a href="https://www.specializedperu.com/equipamiento/equipo/cascos.html" > <span>Cascos</span></a></li><li  class="level2 nav-3-2-2 category-item"><a href="https://www.specializedperu.com/equipamiento/equipo/calzado.html" > <span>Zapatillas</span></a></li><li  class="level2 nav-3-2-3 category-item last"><a href="https://www.specializedperu.com/equipamiento/equipo/guantes.html" > <span>Guantes</span></a></li></ul></li><li  class="level1 nav-3-3 category-item parent"><a href="https://www.specializedperu.com/catalog/category/view/s/accesorios/id/572/"  data-bold-link="1"> <span>Accesorios</span></a><a href="javascript: void(0);" class=" action-link"> <span>Accesorios</span></a><ul class="level1 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/catalog/category/view/s/accesorios/id/572/"  data-bold-link="1"> <span>Accesorios</span></a></li><li  class="level2 nav-3-3-1 category-item first parent"><a href="https://www.specializedperu.com/equipamiento/accesorios/almacenamiento.html" > <span>Almacenamiento</span></a><a href="javascript: void(0);" class=" action-link"> <span>Almacenamiento</span></a><ul class="level2 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/equipamiento/accesorios/almacenamiento.html" > <span>Almacenamiento</span></a></li><li  class="level3 nav-3-3-1-1 category-item first last"><a href="https://www.specializedperu.com/equipamiento/maletas/panniers.html" > <span>Panniers</span></a></li></ul></li><li  class="level2 nav-3-3-2 category-item"><a href="https://www.specializedperu.com/equipamiento/accesorios/herramientas.html" > <span>Herramientas</span></a></li><li  class="level2 nav-3-3-3 category-item"><a href="https://www.specializedperu.com/equipamiento/accesorios/infladores-pipetas-de-co2.html" > <span>Infladores</span></a></li><li  class="level2 nav-3-3-4 category-item"><a href="https://www.specializedperu.com/equipamiento/accesorios/botellas-y-portabotellas.html" > <span>Botellas y Portabotellas</span></a></li><li  class="level2 nav-3-3-5 category-item last"><a href="https://www.specializedperu.com/equipamiento/accesorios/luces-accesorios.html" > <span>Luces</span></a></li></ul></li><li  class="level1 nav-3-4 category-item parent"><a href="https://www.specializedperu.com/catalog/category/view/s/componentes/id/573/"  data-bold-link="1"> <span>Componentes</span></a><a href="javascript: void(0);" class=" action-link"> <span>Componentes</span></a><ul class="level1 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/catalog/category/view/s/componentes/id/573/"  data-bold-link="1"> <span>Componentes</span></a></li><li  class="level2 nav-3-4-1 category-item first"><a href="https://www.specializedperu.com/equipamiento/componentes/sillas-sillines.html" > <span>Asientos</span></a></li><li  class="level2 nav-3-4-2 category-item"><a href="https://www.specializedperu.com/equipamiento/componentes/accesoriohome.html" > <span>Componentes</span></a></li><li  class="level2 nav-3-4-3 category-item"><a href="https://www.specializedperu.com/equipamiento/componentes/llantas-neumaticos.html" > <span>Llantas</span></a></li><li  class="level2 nav-3-4-4 category-item last parent"><a href="https://www.specializedperu.com/equipamiento/componentes/manubrios-accesorios.html" > <span>Timones</span></a><a href="javascript: void(0);" class=" action-link"> <span>Timones</span></a><ul class="level2 submenu"  ><li class="back-link"><a href="javascript: void(0);">Back to parent</a></li><li class="submenu-parent-item"><a href="https://www.specializedperu.com/equipamiento/componentes/manubrios-accesorios.html" > <span>Timones</span></a></li></ul></li></ul></li><li  class="level1 nav-3-5 category-item last"><a href="https://www.specializedperu.com/equipamiento/destacados.html" > <span>Destacados</span></a></li></ul></div><div class="right-column col-md-3"><p><div class="widget block block-static-block">
+    <style>
+/* The dots/bullets/indicators */
+.dotequi {
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.slideshow-container .active, .dotequi:hover {
+  background-color: #717171;
+}
+
+</style>
+
+<div class="slideshow-container">
+
+<div class="mySlidesequi fade">
+  <div class="numbertext">1 / 2</div>
+  <img src="https://www.specializedperu.com/pub/media/wysiwyg/6.jpg" style="width:100%">
+  <div class="text">S-WORKS TURBO RAPIDAIR</div>
+</div>
+
+<div class="mySlidesequi fade">
+  <div class="numbertext">2 / 2</div>
+  <img src="https://www.specializedperu.com/pub/media/wysiwyg/5_1.jpg" style="width:100%">
+  <div class="text">THE ALL-NEW TURBO LEVO</div>
+</div>
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dotequi" onclick="currentSlide2(1)"></span> 
+  <span class="dotequi" onclick="currentSlide2(2)"></span> 
+</div>
+
+<script>
+var slideIndexDos = 1;
+showSlides2(slideIndexDos);
+
+function plusSlides(n) {
+  showSlides2(slideIndexDos += n);
+}
+
+function currentSlide2(n) {
+  showSlides2(slideIndexDos = n);
+}
+
+function showSlides2(n) {
+  var i;
+  var slidesequi = document.getElementsByClassName("mySlidesequi");
+  var dotsequi = document.getElementsByClassName("dotequi");
+  if (n > slidesequi.length) {slideIndexDos = 1}    
+  if (n < 1) {slideIndexDos = slidesequi.length}
+  for (i = 0; i < slidesequi.length; i++) {
+      slidesequi[i].style.display = "none";  
+  }
+  for (i = 0; i < dotsequi.length; i++) {
+      dotsequi[i].className = dotsequi[i].className.replace(" active", "");
+  }
+  slidesequi[slideIndexDos-1].style.display = "block";  
+  dotsequi[slideIndexDos-1].className += " active";
+}
+</script>
+
+
+</div>
+</p></div></div></div></li><li  class="level0 nav-4 category-item level-top"><a href="https://www.specializedperu.com/preventa.html"  class="level-top" > <span>PREVENTA</span></a></li><li  class="level0 nav-5 category-item level-top"><a href="https://www.specializedperu.com/esenciales.html"  class="level-top" > <span>ESENCIALES</span></a></li>					</ul>
+	</div>
+</nav></div></div>
+                            			                                <div class="section-item-content" id="header_links_wrapper" data-role="content"><div class="item-container">
+<ul class="header links"><li class="item link compare" data-bind="scope: 'compareProducts'" data-role="compare-products-link">
+    <a class="action compare no-display" title="Comparar productos"
+       data-bind="attr: {'href': compareProducts().listUrl}, css: {'no-display': !compareProducts().count}"
+    >
+        Comparar productos        <span class="counter qty" data-bind="text: compareProducts().countCaption"></span>
+    </a>
+</li>
+<script type="text/x-magento-init">
+{"[data-role=compare-products-link]": {"Magento_Ui/js/core/app": {"components":{"compareProducts":{"component":"Magento_Catalog\/js\/view\/compare-products"}}}}}
+</script>
+<li><a href="https://www.specializedperu.com/customer/account/" class="top-link-myaccount" >Mi Cuenta</a></li><li class="link wishlist" data-bind="scope: 'wishlist'">
+    <a href="https://www.specializedperu.com/wishlist/">Mi lista de deseos        <!-- ko if: wishlist().counter -->
+        <span data-bind="text: wishlist().counter" class="counter qty"></span>
+        <!-- /ko -->
+    </a>
+</li>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "wishlist": {
+                        "component": "Magento_Wishlist/js/view/wishlist"
+                    }
+                }
+            }
+        }
+    }
+
+</script>
+<li><a href="https://www.specializedperu.com/customer/account/create/" class="top-link-create" >Crear una cuenta</a></li><li class="authorization-link" data-label="o">
+    <a href="https://www.specializedperu.com/customer/account/login/referer/aHR0cHM6Ly93d3cuc3BlY2lhbGl6ZWRwZXJ1LmNvbS9wcmV2ZW50YS5odG1s/">
+        Registrarse    </a>
+</li>
+</ul></div></div>
+                                                            <div class="section-item-content" id="mobile_store_settings" data-role="content"><div class="item-container">
+
+<div class="currency switcher-currency header-switcher" id="switcher-currency-nav">
+    <div class="actions dropdown options switcher-options">
+        <div class="action toggle switcher-trigger" id="switcher-currency-trigger-nav">
+            <strong class="language-USD">
+                <span>USD</span>
+            </strong>
+        </div>
+        <ul class="dropdown switcher-dropdown" data-mage-init='{"dropdownDialog":{
+            "appendTo":"#switcher-currency-nav > .options",
+            "triggerTarget":"#switcher-currency-trigger-nav",
+            "closeOnMouseLeave": false,
+            "triggerClass":"active",
+            "parentClass":"active",
+            "buttons":null}}'>
+                                                <li class="currency-PEN switcher-option">
+                        <a href="#" data-post='{"action":"https:\/\/www.specializedperu.com\/directory\/currency\/switch\/","data":{"currency":"PEN","uenc":"aHR0cHM6Ly93d3cuc3BlY2lhbGl6ZWRwZXJ1LmNvbS9wcmV2ZW50YS5odG1s"}}'>PEN</a>
+                    </li>
+                                                                </ul>
+    </div>
+</div>
+</div></div>
+                    </div>
+    </div>
+</div><footer class="page-footer"><div class="footer-container">
+  <div class="footer accordion-list">
+      <div class="footer-middle">
+<div class="container clearfix">
+<div class="row"><hr class="indent-80 white-space" />
+<div class="col-md-3 col-lg-3 subscribe-block">
+<div class="accordion-content">
+<div class="block-title">Únete a nuestro Newsletter</div>
+<hr class="indent-18 white-space" /><div class="block newsletter">
+    <div class="title"><strong>Boletín de noticias</strong></div>
+    <div class="content">
+        <form class="form subscribe"
+            novalidate
+            action="https://www.specializedperu.com/newsletter/subscriber/new/"
+            method="post"
+            data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+            id="newsletter-content-validate-detail-516">
+            <div class="field newsletter">
+                <label class="label" for="newsletter-content-516"><span>Subscribe to our newsletter</span></label>
+                <div class="input-wrapper">
+                    <input class="form-control" name="email" type="email" id="newsletter-content-516"
+                                placeholder="Correo electrónico"
+                                onfocus="this.placeholder = ''"
+                                onblur="this.placeholder = 'Email'"
+								data-mage-init='{"mage/trim-input":{}}'
+                                data-validate="{required:true, 'validate-email':true}"/>
+
+                </div>
+                <button class="action subscribe btn btn-default" title="Suscribirse" type="submit" aria-label="Subscribe">
+                    <span>Suscribirse</span><i class="meigee-arrow-right"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<p class="caption">Al enviar tu dirección de correo electrónico, aceptas los <a href="/terminos-y-condiciones">Términos y Condiciones</a></p>
+</div>
+</div>
+<div class="col-md-6 col-lg-6 footer-links-wrapper">
+<div><hr class="indent-32 white-space" />
+<ul class="horizontal-links clearfix">
+<li><a href="/nosotros/">Nosotros</a></li>
+<li><a href="/terminos-y-condiciones/">Términos y condiciones</a></li>
+<li><a href="/garantia/">Garantía</a></li>
+<li><a href="https://www.specialized.com/pe/es/account/login" target="_blank">Registro de bicis</a></li>
+<li><a href="/sales/guest/form/">Libro de reclamos</a></li>
+<li><a href="/contact/">Contacto</a></li>
+</ul>
+<hr class="indent-12 white-space" /></div>
+</div>
+<div class="col-md-3 col-lg-3 footer-links-wrapper">
+<div style="text-align: center;"<hr class="indent-32 white-space" /><a class="btn btn-block encuentra" href="/encuentra-tu-tienda">ENCUENTRA NUESTRAS TIENDAS</a> <br />
+<ul class="social-links clearfix">
+<li><a class="facebook" href="#"><i class="meigee-fa-facebook"></i></a></li>
+<li><a class="twitter" href="#"><i class="meigee-fa-twitter"></i></a></li>
+<li><a class="instagram" href="#"><i class="meigee-fa-instagram"></i></a></li>
+<li><a class="email" href="mailito:facturacionweb.peru@specialized.com"><i class="meigee-envelope"></i></a></li>
+</ul>
+<p style="text-align: left;"><b>Specialized Experience Center</b><br /> Av. Reducto 1017, Miraflores<br /> Tel. +511 2415892</p>
+</div>
+</div>
+</div>
+<hr class="indent-80 white-space hidden-xs hidden-sm" /></div>
+<div class="footer-bottom">
+<div class="container clearfix"><hr class="indent-18 white-space" />
+<div class="copyright-wrapper"><address><span class="copyright">&copy; 2021 Specialized Experience Center. All Rights Reserved.</span></address></div>
+<hr class="indent-18 white-space visible-xs visible-sm" /><!-- <div class="payments"><a title="" href="javascript:void(0);"> <img src="https://www.specializedperu.com/pub/media/wysiwyg/pagos.png" alt="Payments" width="300" height="40" /> </a></div>
+<hr class="indent-18 white-space visible-xs visible-sm" />
+<div class="store-switcher-wrapper text-right pull-right"></div>
+<hr class="indent-18 white-space" /></div> --></div>
+</div>
+</div>
+<div class="icono">
+<a href="https://whts.co/spd-per" target="_blank"><span class="icon icon-whatsapp"></span></a>
+</div>
+
+<!--Start of Zendesk Chat Script-->
+<script type="text/javascript">
+window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
+$.src="https://v2.zopim.com/?6CeCO8P9vhvOfJDHAKXdNKuNXiHVXAbc";z.t=+new Date;$.
+type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
+</script>
+<!--End of Zendesk Chat Script-->  </div>
+</div>
+</footer><script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "storage-manager": {
+                            "component": "Magento_Catalog/js/storage-manager",
+                            "appendTo": "",
+                            "storagesConfiguration" :
+                                         {"recently_viewed_product":{"requestConfig":{"syncUrl":"https:\/\/www.specializedperu.com\/catalog\/product\/frontend_action_synchronize\/"},"lifetime":"1000","allowToSendRequest":"1"},"recently_compared_product":{"requestConfig":{"syncUrl":"https:\/\/www.specializedperu.com\/catalog\/product\/frontend_action_synchronize\/"},"lifetime":"1000","allowToSendRequest":"1"},"product_data_storage":{"updateRequestConfig":{"url":"https:\/\/www.specializedperu.com\/rest\/normandy_de\/V1\/products-render-info"},"allowToSendRequest":"1"}}                        }
+                    }
+                }
+            }
+        }
+</script>
+
+    <script type="text/x-magento-init">
+    {
+        "*": {
+            "Dotdigitalgroup_Email/js/emailCapture":{
+                "type":"newsletter",
+                "url":"https://www.specializedperu.com/connector/ajax/emailcapture/"
+            }
+        }
+    }
+    </script>
+<script>
+    requirejs(['jquery', 'weltpixel_quickview' ],
+        function   ($, quickview) {
+            $(document).ready(function() {
+                $('.weltpixel-quickview').bind('click', function() {
+                    var prodUrl = $(this).attr('data-quickview-url');
+                    if (prodUrl.length) {
+                        quickview.displayContent(prodUrl);
+                    }
+                });
+            });
+        });
+
+    window.weltpixel_quickview = {"baseUrl":"https:\/\/www.specializedperu.com\/","closeSeconds":"5","showMiniCart":"1","showShoppingCheckoutButtons":"1"};
+</script><div id="popup-modal">
+	
+</div>
+<script>
+    require(
+        [
+            'jquery',
+            'Magento_Ui/js/modal/modal'
+        ],
+        function(
+            $,
+            modal
+        ) {
+            var options = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: true,
+                buttons: false,
+				closed: function(){
+				   $('#popup-modal').html('');
+				}
+            };
+
+            var meigeeModal = modal(options, $('#popup-modal'));
+            $('a[data-toggle="modal"]').on('click', function() {
+				target = $(this).data('target');
+				content = $(document).find(target).children().clone();
+				$('#popup-modal').html(content);
+				$('#popup-modal').modal('openModal');
+			});
+        }
+    );
+</script></div>    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","licenseKey":"83cdf89c08","applicationID":"289466540","transactionName":"YVABNxBWVkNYARdcXFgaIgAWXldeFhICUlZpVgIAClI=","queueTime":0,"applicationTime":115,"atts":"TRcCQVhMRU0=","errorBeacon":"bam-cell.nr-data.net","agent":""}</script></body>
+</html>
