@@ -13,11 +13,12 @@ def dumb_cache(url):
     html_content = ""
     file_name = "page-cache/" + utils.replace_chars_for_filename(url)
     try:
-        file = open(file_name,"r")
+        file = open(file_name,"r", encoding="utf-8")
         html_content = file.read()
     except:        
-        html_content = requests.get(url, headers=HEADERS).text
-        file = open(file_name,"w")
+        response = requests.get(url, headers=HEADERS)
+        html_content = response.text
+        file = open(file_name,"w", encoding="utf-8")
         file.write(html_content)
         file.close()
     return html_content

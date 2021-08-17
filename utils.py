@@ -8,6 +8,10 @@ def replace_chars_for_filename(url):
         .replace("=","_")\
         .replace("&","_")
 
-from urllib.parse import urlparse
+import urllib.parse
+
 def extract_domain_from_url(url):
-    urlparse(url).netloc
+    return urllib.parse.urlparse(url).netloc
+
+def ensure_absolute_url(base_url, url):
+    return urllib.parse.urljoin(base_url, url) if url != "" else ""
