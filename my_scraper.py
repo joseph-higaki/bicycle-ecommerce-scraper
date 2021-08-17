@@ -103,7 +103,7 @@ def scrape_site(scraper_type):
 
 
 def main():
-    # scrape_site(scraper_type.ScraperType.oxford("https://www.oxfordstore.pe/bicicletas.html"))
+    scrape_site(scraper_type.ScraperType.oxford("https://www.oxfordstore.pe/bicicletas.html"))
     scrape_site(scraper_type.ScraperType.monark("https://www.monark.com.pe/categoria-producto/bicicletas/"))
     
 if __name__ == "__main__":

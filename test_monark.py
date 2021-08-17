@@ -9,11 +9,11 @@ from my_scraper import MyScraper
 
 @pytest.fixture
 def html_static_content_first_page():
-    return open("tests/test_data/https___www_monark_com_pe_categoria-producto_bicicletas_").read()
+    return open("tests/test_data/https___www_monark_com_pe_categoria-producto_bicicletas_","r", encoding="utf-8").read()
 
 @pytest.fixture
 def html_static_content_last_page():
-    return open("tests/test_data/https___www_monark_com_pe_categoria-producto_bicicletas__page_6").read()
+    return open("tests/test_data/https___www_monark_com_pe_categoria-producto_bicicletas__page_6","r", encoding="utf-8").read()
 
 @pytest.fixture
 def monark_scraper_type():
@@ -29,18 +29,25 @@ def product_list_first_page(monark_scraper, html_static_content_first_page):
     return monark_scraper.get_product_element_list(html_tree)   
 
 @pytest.fixture
-def product_glt_12_bali_blanco(monark_scraper, product_list_first_page):
-    # GLT 12 BALI BLANCO
-    # old special price
-    # oferta
-    return product_list_first_page[0]
+def product_list_last_page(monark_scraper, html_static_content_last_page):    
+    html_tree = html.fromstring(html_static_content_last_page)    
+    return monark_scraper.get_product_element_list(html_tree)   
 
 @pytest.fixture
-def product_glt_12_bali_verde(monark_scraper, product_list_first_page):
-    # GLT 12 BALI VERDE
+def product_liv_bliss_275_eclipse(monark_scraper, product_list_first_page):
+    # BICICLETA LIV BLISS - ARO 27.5" - COLOR ECLIPSE
+    # https://www.monark.com.pe/producto/bicicleta-liv-bliss-aro-27-5-color-eclipse/
     # regular price
-    # proximante
-    return product_list_first_page[10]
+    # no cart label
+    return product_list_first_page[2]
+
+@pytest.fixture
+def product_monark_eflash_20_negro(monark_scraper, product_list_last_page):
+    # BICICLETA ELÉCTRICA MONARK E-FLASH - ARO 20″ - NEGRO
+    # old and special price
+    # discount label -25
+    # add tocart label
+    return product_list_last_page[2]
 
 def test_get_next_page_url(monark_scraper, html_static_content_first_page):
     html_tree = html.fromstring(html_static_content_first_page)
@@ -56,65 +63,62 @@ def test_get_product_element_list(monark_scraper, html_static_content_first_page
     html_tree = html.fromstring(html_static_content_first_page)
     product_list = monark_scraper.get_product_element_list(html_tree)
     assert product_list 
-    assert len(product_list) == 12
+    assert len(product_list) == 15
 
 # ************************
-# GLT 12 BALI BLANCO
+# BICICLETA LIV BLISS - ARO 27.5" - COLOR ECLIPSE
 # ************************
-def test_get_product_name_glt_12_bali_blanco(monark_scraper, product_glt_12_bali_blanco):    
-    assert monark_scraper.get_product_name(product_glt_12_bali_blanco) == "GLT 12 BALI BLANCO"
+def test_get_product_name_liv_bliss_275_eclipse(monark_scraper, product_liv_bliss_275_eclipse):    
+    assert monark_scraper.get_product_name(product_liv_bliss_275_eclipse) == 'BICICLETA LIV BLISS - ARO 27.5" - COLOR ECLIPSE'
 
-def test_get_product_link_glt_12_bali_blanco(monark_scraper, product_glt_12_bali_blanco):    
-    assert monark_scraper.get_product_link(product_glt_12_bali_blanco) == "https://www.oxfordstore.pe/bicicletas/glt-12-bali-blanco.html"
+def test_get_product_link_liv_bliss_275_eclipse(monark_scraper, product_liv_bliss_275_eclipse):    
+    assert monark_scraper.get_product_link(product_liv_bliss_275_eclipse) == "https://www.monark.com.pe/producto/bicicleta-liv-bliss-aro-27-5-color-eclipse/"
 
-def test_get_product_image_link_glt_12_bali_blanco(monark_scraper, product_glt_12_bali_blanco):
-    assert monark_scraper.get_product_image_link(product_glt_12_bali_blanco) == "https://www.oxfordstore.pe/media/catalog/product/cache/1/thumbnail/533x400/17f82f742ffe127f42dca9de82fb58b1/b/a/bali.jpg"
+def test_get_product_image_link_liv_bliss_275_eclipse(monark_scraper, product_liv_bliss_275_eclipse):
+    assert monark_scraper.get_product_image_link(product_liv_bliss_275_eclipse) == "https://www.monark.com.pe/wp-content/uploads/MY21-Bliss-27.5_Color-B-Eclipse-min-600x600.jpg"
 
-def test_get_product_old_price_glt_12_bali_blanco(monark_scraper, product_glt_12_bali_blanco):
-    assert monark_scraper.get_product_old_price(product_glt_12_bali_blanco) == "S/.429.00"    
+def test_get_product_old_price_liv_bliss_275_eclipse(monark_scraper, product_liv_bliss_275_eclipse):
+    assert monark_scraper.get_product_old_price(product_liv_bliss_275_eclipse) == ""    
 
-def test_get_product_special_price_glt_12_bali_blanco(monark_scraper, product_glt_12_bali_blanco):
-    assert monark_scraper.get_product_special_price(product_glt_12_bali_blanco) == "S/.379.00"
+def test_get_product_special_price_liv_bliss_275_eclipse(monark_scraper, product_liv_bliss_275_eclipse):
+    assert monark_scraper.get_product_special_price(product_liv_bliss_275_eclipse) == ""
 
-def test_get_product_regular_price_glt_12_bali_blanco(monark_scraper, product_glt_12_bali_blanco):
-    assert monark_scraper.get_product_regular_price(product_glt_12_bali_blanco) == ""
+def test_get_product_regular_price_liv_bliss_275_eclipse(monark_scraper, product_liv_bliss_275_eclipse):
+    assert monark_scraper.get_product_regular_price(product_liv_bliss_275_eclipse) == "2,364.00"
 
-def test_get_product_status_label_glt_12_bali_blanco(monark_scraper, product_glt_12_bali_blanco):
-    assert monark_scraper.get_product_status_label(product_glt_12_bali_blanco) == "Oferta"
+def test_get_product_status_label_liv_bliss_275_eclipse(monark_scraper, product_liv_bliss_275_eclipse):
+    assert monark_scraper.get_product_status_label(product_liv_bliss_275_eclipse) == ""
 
-def test_get_product_discount_label_glt_12_bali_blanco(monark_scraper, product_glt_12_bali_blanco):
-    assert monark_scraper.get_product_discount_label(product_glt_12_bali_blanco) == ""
+def test_get_product_discount_label_liv_bliss_275_eclipse(monark_scraper, product_liv_bliss_275_eclipse):
+    assert monark_scraper.get_product_discount_label(product_liv_bliss_275_eclipse) == ""
 
-def test_get_product_add_to_cart_label_glt_12_bali_blanco(monark_scraper, product_glt_12_bali_blanco):
-    assert monark_scraper.get_product_add_to_cart_label(product_glt_12_bali_blanco) == "Añadir al carro"
+def test_get_product_add_to_cart_label_liv_bliss_275_eclipse(monark_scraper, product_liv_bliss_275_eclipse):
+    assert monark_scraper.get_product_add_to_cart_label(product_liv_bliss_275_eclipse) == ""
 
 # ************************
-# GLT 12 BALI VERDE
+# BICICLETA ELÉCTRICA MONARK E-FLASH - ARO 20″ - NEGRO
 # ************************
-def test_get_product_name_glt_12_bali_verde(monark_scraper, product_glt_12_bali_verde):    
-    assert monark_scraper.get_product_name(product_glt_12_bali_verde) == "GLT 12 BALI VERDE"
+def test_get_product_name_monark_eflash_20_negro(monark_scraper, product_monark_eflash_20_negro):    
+    assert monark_scraper.get_product_name(product_monark_eflash_20_negro) == 'BICICLETA ELÉCTRICA MONARK E-FLASH - ARO 20″ - NEGRO'
 
-def test_get_product_name_glt_12_bali_verde(monark_scraper, product_glt_12_bali_verde):    
-    assert monark_scraper.get_product_name(product_glt_12_bali_verde) == "GLT 12 BALI VERDE"
+def test_get_product_old_price_monark_eflash_20_negro(monark_scraper, product_monark_eflash_20_negro):
+    assert monark_scraper.get_product_old_price(product_monark_eflash_20_negro) == "4,999.00"
 
-def test_get_product_old_price_glt_12_bali_verde(monark_scraper, product_glt_12_bali_verde):
-    assert monark_scraper.get_product_old_price(product_glt_12_bali_verde) == ""    
+def test_get_product_special_price_monark_eflash_20_negro(monark_scraper, product_monark_eflash_20_negro):
+    assert monark_scraper.get_product_special_price(product_monark_eflash_20_negro) == "3,999.00"
 
-def test_get_product_special_price_glt_12_bali_verde(monark_scraper, product_glt_12_bali_verde):
-    assert monark_scraper.get_product_special_price(product_glt_12_bali_verde) == ""
+def test_get_product_regular_price_monark_eflash_20_negro(monark_scraper, product_monark_eflash_20_negro):
+    assert monark_scraper.get_product_regular_price(product_monark_eflash_20_negro) == ""
 
-def test_get_product_regular_price_glt_12_bali_verde(monark_scraper, product_glt_12_bali_verde):
-    assert monark_scraper.get_product_regular_price(product_glt_12_bali_verde) == "S/.429.00"
+def test_get_product_status_label_monark_eflash_20_negro(monark_scraper, product_monark_eflash_20_negro):
+    assert monark_scraper.get_product_status_label(product_monark_eflash_20_negro) == ""
 
-def test_get_product_status_label_glt_12_bali_verde(monark_scraper, product_glt_12_bali_verde):
-    assert monark_scraper.get_product_status_label(product_glt_12_bali_verde) == "Próximamente"
+def test_get_product_discount_label_monark_eflash_20_negro(monark_scraper, product_monark_eflash_20_negro):
+    assert monark_scraper.get_product_discount_label(product_monark_eflash_20_negro) == "-20%"
 
-def test_get_product_discount_label_glt_1_bali_verde(monark_scraper, product_glt_12_bali_verde):
-    assert monark_scraper.get_product_discount_label(product_glt_12_bali_verde) == ""
+def test_get_product_add_to_cart_label_monark_eflash_20_negro(monark_scraper, product_monark_eflash_20_negro):
+    assert monark_scraper.get_product_add_to_cart_label(product_monark_eflash_20_negro) == "COMPRAR"
 
-def test_get_product_add_to_cart_label_glt_12_bali_verde(monark_scraper, product_glt_12_bali_verde):
-    assert monark_scraper.get_product_add_to_cart_label(product_glt_12_bali_verde) == ""
-
-if __name__ == '__main__':
-    #test_get_next_page_url_last_page(monark_scraper(monark_scraper_type()), html_static_content_last_page())
-    test_get_product_element_list(monark_scraper(monark_scraper_type()), html_static_content_first_page())
+if __name__ == '__main__':    
+    #test_get_product_element_list(monark_scraper(monark_scraper_type()), html_static_content_first_page())
+    None
