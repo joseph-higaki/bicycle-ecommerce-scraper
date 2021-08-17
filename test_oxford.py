@@ -44,12 +44,12 @@ def product_glt_12_bali_verde(oxford_scraper, product_list_first_page):
 
 def test_get_next_page_url(oxford_scraper, html_static_content_first_page):
     html_tree = html.fromstring(html_static_content_first_page)
-    next_element = oxford_scraper.get_next_page_url(html_tree)
+    next_element = oxford_scraper.get_next_page_url(html_tree, html_static_content_first_page)
     assert next_element != ""
 
 def test_get_next_page_url_last_page(oxford_scraper, html_static_content_last_page):
     html_tree = html.fromstring(html_static_content_last_page)
-    next_element = oxford_scraper.get_next_page_url(html_tree)
+    next_element = oxford_scraper.get_next_page_url(html_tree, html_static_content_last_page)
     assert next_element == ""
 
 def test_get_product_element_list(oxford_scraper, html_static_content_first_page):      
@@ -58,6 +58,9 @@ def test_get_product_element_list(oxford_scraper, html_static_content_first_page
     assert product_list 
     assert len(product_list) == 12
 
+# ************************
+# GLT 12 BALI BLANCO
+# ************************
 def test_get_product_name_glt_12_bali_blanco(oxford_scraper, product_glt_12_bali_blanco):    
     assert oxford_scraper.get_product_name(product_glt_12_bali_blanco) == "GLT 12 BALI BLANCO"
 
@@ -74,29 +77,43 @@ def test_get_product_special_price_glt_12_bali_blanco(oxford_scraper, product_gl
     assert oxford_scraper.get_product_special_price(product_glt_12_bali_blanco) == "S/.379.00"
 
 def test_get_product_regular_price_glt_12_bali_blanco(oxford_scraper, product_glt_12_bali_blanco):
-    assert oxford_scraper.get_product_special_price(product_glt_12_bali_blanco) == ""
+    assert oxford_scraper.get_product_regular_price(product_glt_12_bali_blanco) == ""
 
-def test_get_product_label_glt_12_bali_blanco(oxford_scraper, product_glt_12_bali_blanco):
-    assert oxford_scraper.get_product_label(product_glt_12_bali_blanco) == "Oferta"
+def test_get_product_status_label_glt_12_bali_blanco(oxford_scraper, product_glt_12_bali_blanco):
+    assert oxford_scraper.get_product_status_label(product_glt_12_bali_blanco) == "Oferta"
 
+def test_get_product_discount_label_glt_12_bali_blanco(oxford_scraper, product_glt_12_bali_blanco):
+    assert oxford_scraper.get_product_discount_label(product_glt_12_bali_blanco) == ""
+
+def test_get_product_add_to_cart_label_glt_12_bali_blanco(oxford_scraper, product_glt_12_bali_blanco):
+    assert oxford_scraper.get_product_add_to_cart_label(product_glt_12_bali_blanco) == "Añadir al carro"
+
+# ************************
+# GLT 12 BALI VERDE
+# ************************
 def test_get_product_name_glt_12_bali_verde(oxford_scraper, product_glt_12_bali_verde):    
     assert oxford_scraper.get_product_name(product_glt_12_bali_verde) == "GLT 12 BALI VERDE"
 
 def test_get_product_name_glt_12_bali_verde(oxford_scraper, product_glt_12_bali_verde):    
     assert oxford_scraper.get_product_name(product_glt_12_bali_verde) == "GLT 12 BALI VERDE"
 
-def test_get_product_old_price_glt_12_bali_blanco(oxford_scraper, product_glt_12_bali_verde):
+def test_get_product_old_price_glt_12_bali_verde(oxford_scraper, product_glt_12_bali_verde):
     assert oxford_scraper.get_product_old_price(product_glt_12_bali_verde) == ""    
 
-def test_get_product_special_price_glt_12_bali_blanco(oxford_scraper, product_glt_12_bali_verde):
+def test_get_product_special_price_glt_12_bali_verde(oxford_scraper, product_glt_12_bali_verde):
     assert oxford_scraper.get_product_special_price(product_glt_12_bali_verde) == ""
 
-def test_get_product_regular_price_glt_12_bali_blanco(oxford_scraper, product_glt_12_bali_verde):
+def test_get_product_regular_price_glt_12_bali_verde(oxford_scraper, product_glt_12_bali_verde):
     assert oxford_scraper.get_product_regular_price(product_glt_12_bali_verde) == "S/.429.00"
 
-def test_get_product_label_glt_12_bali_blanco(oxford_scraper, product_glt_12_bali_verde):
-    assert oxford_scraper.get_product_label(product_glt_12_bali_verde) == "Próximamente"
+def test_get_product_status_label_glt_12_bali_verde(oxford_scraper, product_glt_12_bali_verde):
+    assert oxford_scraper.get_product_status_label(product_glt_12_bali_verde) == "Próximamente"
 
+def test_get_product_discount_label_glt_1_bali_verde(oxford_scraper, product_glt_12_bali_verde):
+    assert oxford_scraper.get_product_discount_label(product_glt_12_bali_verde) == ""
+
+def test_get_product_add_to_cart_label_glt_12_bali_verde(oxford_scraper, product_glt_12_bali_verde):
+    assert oxford_scraper.get_product_add_to_cart_label(product_glt_12_bali_verde) == ""
 
 if __name__ == '__main__':
     #test_get_next_page_url_last_page(oxford_scraper(oxford_scraper_type()), html_static_content_last_page())

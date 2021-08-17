@@ -8,10 +8,13 @@ class ScraperType:
         self.xpath_product_name = ""
         self.xpath_product_link = ""
         self.xpath_product_image_link = ""
-        self.xpath_product_label = ""        
+        self.xpath_product_status_label = ""    
+        self.xpath_product_discount_label = ""
         self.xpath_product_old_price = ""
         self.xpath_product_special_price = ""
         self.xpath_product_regular_price = ""
+        self.xpath_product_add_to_cart_label = ""       
+
         
     @classmethod
     def oxford(cls, base_url):
@@ -21,26 +24,31 @@ class ScraperType:
         scraper_type.xpath_product_name = './/*[contains(@class, "product-name")]/a/text()'
         scraper_type.xpath_product_link = './/*[contains(@class, "product-name")]/a/@href'
         scraper_type.xpath_product_image_link = './/img/@src'
-        scraper_type.xpath_product_label = './/*[contains(@class, "product-label")]/span/text()'        
+        scraper_type.xpath_product_status_label = './/*[contains(@class, "product-label")]/span/text()'        
         scraper_type.xpath_product_old_price = './/*[contains(@class, "old-price")]/span/text()'
         scraper_type.xpath_product_special_price = './/*[contains(@class, "special-price")]/span/text()'
         scraper_type.xpath_product_regular_price = './/*[contains(@class, "regular-price")]/span/text()'
+        scraper_type.xpath_product_discount_label = ''
+        scraper_type.xpath_product_add_to_cart_label = './/*[contains(@title, "Añadir al carro")]/@title'
         return scraper_type
 
 
-    # @classmethod
-    # def monark(cls, base_url):
-    #     scraper_type = cls(name = "monark", base_url = base_url)
-    #     scraper_type.xpath_product_element_list = '//*[contains(@class, "owl-item")]'
-    #     scraper_type.xpath_next_page_url = '//*[contains(@class, "next i-next")]/@href'
-    #     scraper_type.xpath_product_name = './/*[contains(@class, "product-name")]/a/text()'
-    #     scraper_type.xpath_product_link = './/*[contains(@class, "product-name")]/a/@href'
-    #     scraper_type.xpath_product_image_link = './/img/@src'
-    #     scraper_type.xpath_product_label = './/*[contains(@class, "product-label")]/span/text()'        
-    #     scraper_type.xpath_product_old_price = './/*[contains(@class, "old-price")]/span/text()'
-    #     scraper_type.xpath_product_special_price = './/*[contains(@class, "special-price")]/span/text()'
-    #     scraper_type.xpath_product_regular_price = './/*[contains(@class, "regular-price")]/span/text()'
-    #     return scraper_type
+    @classmethod
+    def monark(cls, base_url):
+        scraper_type = cls(name = "monark", base_url = base_url)
+        scraper_type.xpath_product_element_list = '//*[contains(@class, "owl-item")]'
+        scraper_type.xpath_next_page_url = '//*[contains(@class, "page-numbers current")]/ancestor::li/following-sibling::li[1]/a/@href'
+        scraper_type.xpath_product_name = './/*[contains(@class, "titulo")]/h2/text()'
+        scraper_type.xpath_product_link = './/*[contains(@class, "btn")]/@href'
+        scraper_type.xpath_product_image_link = './/*[contains(@class, "imagen")]//img/@src'
+
+        scraper_type.xpath_product_status_label = ''  
+        scraper_type.xpath_product_old_price = './/*[contains(@class, "price-default")]/del/span/text()'
+        scraper_type.xpath_product_special_price = './/*[contains(@class, "price-default")]/ins/span/text()'
+        scraper_type.xpath_product_regular_price = './/*[contains(@class, "price-default")]/span/text()'
+        scraper_type.xpath_product_discount_label = './/*[contains(@class, "sale-perc")]/text()'
+        scraper_type.xpath_product_add_to_cart_label = './/*[contains(@class, "comprar")]/text()'
+        return scraper_type
 
 
 
