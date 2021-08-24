@@ -68,3 +68,20 @@ class ScraperType:
         scraper_type.xpath_product_add_to_cart_label = ''
         return scraper_type
 
+    @classmethod
+    def wong(cls, base_url):
+        scraper_type = cls(name = "wong", base_url = base_url)
+        scraper_type.xpath_product_element_list = '//*[contains(@class, "product-item product-item--")]'
+        scraper_type.xpath_next_page_url = ''
+        scraper_type.xpath_product_name = './/*[@class="product-item__name"]/text()'
+        scraper_type.xpath_product_link = './/*[@class="product-item__name"]/@href'
+        scraper_type.xpath_product_image_link = './/*[@class="product-item__image-link"]/div/img/@src'
+
+        scraper_type.xpath_product_status_label = './/*[@class="product-prices__label--discount-label"]/text()'  
+        scraper_type.xpath_product_old_price = './/*[@class="product-prices__price product-prices__price--former-price"]/*[@class="product-prices__value"]/text()'
+        scraper_type.xpath_product_special_price = './/*[@class="product-prices__value product-prices__value--best-price"]/text()'
+        scraper_type.xpath_product_regular_price = 'review '
+        scraper_type.xpath_product_discount_label = './/*[@class="flag discount-percent"]/text()'
+        scraper_type.xpath_product_add_to_cart_label = './/*[@class="product-add-to-cart__text"]/text()'
+        return scraper_type
+
