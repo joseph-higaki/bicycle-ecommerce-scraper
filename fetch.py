@@ -41,22 +41,26 @@ def get_browser():
 
 def get_dynamic_page_content_bottom_scroll(url):
     driver = get_browser()
-    driver.get(url)
-    screen_height = driver.execute_script("return window.screen.height;")
-    ##### Web scrapper for infinite scrolling page #####
-    time.sleep(1)  # Allow 2 seconds for the web page to open
-    scroll_pause_time = 1 # You can set your own pause time. My laptop is a bit slow so I use 1 sec
-    i = 1
-    while True:
-        # scroll one screen height each time
-        driver.execute_script(f"window.scrollTo(0,{screen_height * i});")
-        i += 1
-        time.sleep(scroll_pause_time)
-        # update scroll height each time after scrolled, as the scroll height can change after we scrolled the page
-        scroll_height = driver.execute_script("return document.body.scrollHeight;")  
-        # Break the loop when the height we need to scroll to is larger than the total scroll height
-        if (screen_height) * i > scroll_height:
-            break 
-    return driver.page_source
+    try:
+        driver.get(url)
+        screen_height = driver.execute_script("return window.screen.height;")
+        ##### Web scrapper for infinite scrolling page #####
+        time.sleep(1)  # Allow 2 seconds for the web page to open
+        scroll_pause_time = 1 # You can set your own pause time. My laptop is a bit slow so I use 1 sec
+        i = 1
+        while True:
+            # scroll one screen height each time
+            driver.execute_script(f"window.scrollTo(0,{screen_height * i});")
+            i += 1
+            time.sleep(scroll_pause_time)
+            # update scroll height each time after scrolled, as the scroll height can change after we scrolled the page
+            scroll_height = driver.execute_script("return document.body.scrollHeight;")  
+            # Break the loop when the height we need to scroll to is larger than the total scroll height
+            if (screen_height) * i > scroll_height:
+                break 
+        return_value = driver.page_source
+    finally:
+        driver.close()
+    return return_value
     
 
