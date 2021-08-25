@@ -58,10 +58,8 @@ console.warn: services.settings: main/doh-config Signature verified failed. Retr
 console.log: WebExtensions: reset-default-search: starting.
 console.log: WebExtensions: reset-default-search: No addons in our list are installed.
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
- this session
-JavaScript warning: https://www.googletagmanager.com/gtm.js?id=GTM-P2C5HG, line 327: unreachable code after return statement
-1629817705930	geckodriver	INFO	Listening on 127.0.0.1:61752
-1629817708930	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--ignore-certificate-errors" "--incognito" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\josep\\AppData\\Local\\Temp\\rust_mozprofileCw7Wsd"
+JavaScript error: , line 0: NotFoundError: Could not move source file(C:\Users\josep\AppData\Local\Temp\rust_mozprofilegft9rC\bookmarkbackups\bookmarks-2021-08-24_11_90NqNig+zicMYanELoGa5g==.jsonlz4) because it does not exist
+unner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--ignore-certificate-errors" "--incognito" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\josep\\AppData\\Local\\Temp\\rust_mozprofileCw7Wsd"
 *** You are running in headless mode.
 1629817712056	Marionette	INFO	Marionette enabled
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
@@ -82,8 +80,8 @@ console.warn: services.settings: main/doh-config Signature verified failed. Retr
 console.log: WebExtensions: reset-default-search: starting.
 console.log: WebExtensions: reset-default-search: No addons in our list are installed.
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-1629825920817	geckodriver	INFO	Listening on 127.0.0.1:64025
-1629825923749	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--ignore-certificate-errors" "--incognito" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\josep\\AppData\\Local\\Temp\\rust_mozprofileNxw46k"
+JavaScript error: , line 0: NotFoundError: Could not move source file(C:\Users\josep\AppData\Local\Temp\rust_mozprofileCw7Wsd\bookmarkbackups\bookmarks-2021-08-24_11_yP8Y+JmfvP8SHMLfRzEzfw==.jsonlz4) because it does not exist
+adless" "-foreground" "-no-remote" "-profile" "C:\\Users\\josep\\AppData\\Local\\Temp\\rust_mozprofileNxw46k"
 *** You are running in headless mode.
 1629825925202	Marionette	INFO	Marionette enabled
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
@@ -104,3 +102,13 @@ console.warn: services.settings: main/doh-config Signature verified failed. Retr
 console.log: WebExtensions: reset-default-search: starting.
 console.log: WebExtensions: reset-default-search: No addons in our list are installed.
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NotFoundError: Could not move source file(C:\Users\josep\AppData\Local\Temp\rust_mozprofileNxw46k\bookmarkbackups\bookmarks-2021-08-24_11_nvPUb73j9cUX+DLVm4gmlw==.jsonlz4) because it does not exist
+1629896194708	geckodriver	INFO	Listening on 127.0.0.1:55142
+1629896197775	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--ignore-certificate-errors" "--incognito" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\josep\\AppData\\Local\\Temp\\rust_mozprofilezmGAp2"
+*** You are running in headless mode.
+1629896199241	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\josep\\AppData\\Local\\Temp\\rust_mozprofilezmGAp2\\search.json.mozlz4", (void 0)))
+1629896203419	Marionette	INFO	Listening on port 55150
+1629896203701	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.googletagmanager.com/gtm.js?id=GTM-P2C5HG, line 327: unreachable code after return statement
