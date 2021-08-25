@@ -4,3 +4,4 @@ output/
 page-cache/
 .coverage
 .coverage.*
+geckodriver.log
