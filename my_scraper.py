@@ -84,7 +84,13 @@ class MyScraper:
                                 "site": utils.extract_domain_from_url(url),
                                 "url": url}
             tree = html.fromstring(fetch.get_page_content(url, force_bottom_scroll=True))            
-            url = self.get_next_page_url(tree, url)
+            #url = self.get_next_page_url(tree, url)
+            
+            another_tree = fetch.get_next_page_content(url)
+
+            #to be erased
+            tree = another_tree
+
             product_element_list = self.get_product_element_list(tree)
             for product_element in product_element_list:   
                 product = self.get_product(product_element) 
@@ -108,7 +114,10 @@ def main():
     # scrape_site(scraper_type.ScraperType.specialized("https://www.specializedperu.com/catalog/category/view/s/bicicletas/id/467/"))
     # scrape_site(scraper_type.ScraperType.specialized("https://www.specializedperu.com/preventa.html"))
 
-    scrape_site(scraper_type.ScraperType.wong("https://www.wong.pe/deportes-y-outdoors/bicicletas"))
+    #scrape_site(scraper_type.ScraperType.wong("https://www.wong.pe/deportes-y-outdoors/bicicletas"))
+    # doesnt work scrape_site(scraper_type.ScraperType.juntoz("https://juntoz.com/categorias/deportes-aventura?categories=1172"))
+
+    scrape_site(scraper_type.ScraperType.plazavea("https://www.plazavea.com.pe/deportes/bicicletas"))
     
 if __name__ == "__main__":
     main()

@@ -1,3 +1,4 @@
+from my_scraper import MyScraper
 import requests
 from requests.api import get
 import utils
@@ -35,9 +36,26 @@ def get_browser():
     options = webdriver.FirefoxOptions()
     options.add_argument('--ignore-certificate-errors')
     options.add_argument('--incognito')    
-    options.set_headless()                       
+    #options.set_headless()                       
     driver = webdriver.Firefox(executable_path="./browser-driver/geckodriver.exe", firefox_options = options)
     return driver
+
+def scroll_current_page(driver):    
+    screen_height = driver.execute_script("return window.screen.height;")
+    ##### Web scrapper for infinite scrolling page #####
+    time.sleep(1)  # Allow 2 seconds for the web page to open
+    scroll_pause_time = 1 # You can set your own pause time. My laptop is a bit slow so I use 1 sec
+    i = 1
+    while True:
+        # scroll one screen height each time
+        driver.execute_script(f"window.scrollTo(0,{screen_height * i});")
+        i += 1
+        time.sleep(scroll_pause_time)
+        # update scroll height each time after scrolled, as the scroll height can change after we scrolled the page
+        scroll_height = driver.execute_script("return document.body.scrollHeight;")  
+        # Break the loop when the height we need to scroll to is larger than the total scroll height
+        if (screen_height) * i > scroll_height:
+            break         
 
 def get_dynamic_page_content_bottom_scroll(url):
     driver = get_browser()
@@ -62,5 +80,28 @@ def get_dynamic_page_content_bottom_scroll(url):
     finally:
         driver.close()
     return return_value
+
+from lxml import html
+# tree: lxml.etree._Element
+#def get_next_page_url(self, tree, current_url)    
+def get_next_page_content(url):
+    driver = get_browser()
+    return_value = ""
+    try:
+        driver.get(url)
+        scroll_current_page(driver)
+        time.sleep(2)
+        # next_object = driver.find_element_by_xpath('//a[text()= "Siguiente"]') JUNTOZ
+        next_object = driver.find_element_by_xpath('//span[@class = "pagination__item page-control next "]') #PLAZA VEA        
+        if next_object:
+            next_object.click()
+        time.sleep(1)
+        return_value = driver.page_source
+    finally:
+        driver.close()
+    return return_value 
+
+        
+        
     
 

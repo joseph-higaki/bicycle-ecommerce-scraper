@@ -83,4 +83,42 @@ class ScraperType:
         scraper_type.xpath_product_discount_label = './/*[@class="flag discount-percent"]/text()'
         scraper_type.xpath_product_add_to_cart_label = './/*[@class="product-add-to-cart__text"]/text()'
         return scraper_type
+    
+    @classmethod
+    def juntoz(cls, base_url):
+        scraper_type = cls(name = "juntoz", base_url = base_url)
+        scraper_type.xpath_product_element_list = '//*[@class = "catalog-products-body__product-wrapper"]'
+        scraper_type.xpath_next_page_url = ''
+        scraper_type.xpath_product_name = './/*[contains(@class, "catalog-products-body__product-name__title-hover")]/text()'
+        scraper_type.xpath_product_link = './/*[contains(@class, "catalog-products-body__product-name__title-hover")]/@href'
+        scraper_type.xpath_product_image_link = './/*[@class = "img-responsive catalog-products-body__product-img-big"]/@src'
+        
+        scraper_type.xpath_product_status_label = 'TBD'
+        scraper_type.xpath_product_old_price = './/*[@class = "ng-binding catalog-products-body__product-old-price"]/text()'        
+        scraper_type.xpath_product_special_price = './/*[@class = "catalog-products-body__product-special-price ng-binding ng-scope"]/text()'
+        
+        scraper_type.xpath_product_regular_price = './/*[@class = "ng-binding catalog-products-body__product-special-price"]/text()'
+        scraper_type.xpath_product_discount_label = './/*[@class = "catalog-products-body__product-prices__discount ng-binding ng-scope"]/text()'
 
+        scraper_type.xpath_product_add_to_cart_label = ''
+        return scraper_type
+    
+    @classmethod
+    def plazavea(cls, base_url):
+        scraper_type = cls(name = "plazavea", base_url = base_url)
+        scraper_type.xpath_product_element_list = '//*[contains(@class, "Showcase Showcase")]'
+        scraper_type.xpath_next_page_url = ''
+        scraper_type.xpath_product_name = './/*[@class = "Showcase__details__text"]/a/text()'
+        
+        #TBD
+        scraper_type.xpath_product_link = './/*[contains(@class, "catalog-products-body__product-name__title-hover")]/@href'
+        scraper_type.xpath_product_image_link = './/*[@class = "img-responsive catalog-products-body__product-img-big"]/@src'        
+        scraper_type.xpath_product_status_label = 'TBD'
+        scraper_type.xpath_product_old_price = './/*[@class = "ng-binding catalog-products-body__product-old-price"]/text()'        
+        scraper_type.xpath_product_special_price = './/*[@class = "catalog-products-body__product-special-price ng-binding ng-scope"]/text()'
+        
+        scraper_type.xpath_product_regular_price = './/*[@class = "ng-binding catalog-products-body__product-special-price"]/text()'
+        scraper_type.xpath_product_discount_label = './/*[@class = "catalog-products-body__product-prices__discount ng-binding ng-scope"]/text()'
+
+        scraper_type.xpath_product_add_to_cart_label = ''
+        return scraper_type
