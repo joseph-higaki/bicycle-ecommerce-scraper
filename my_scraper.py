@@ -29,6 +29,17 @@ class MyScraper:
     def get_next_page_url(self, tree, current_url):
         return utils.ensure_absolute_url(current_url, MyScraper._get_first_string_element(tree, self.scraper_type.xpath_next_page_url))
             
+    def move_to_next_page_content(self, driver):
+        '''
+        Used in DOM_ACTION next page type
+        It executes the event on the element that loads the next set of items
+        '''
+        next_object = driver.find_element_by_xpath(self.scraper_type.xpath_next_page_object)
+        if next_object:
+            next_object.click() 
+        time.sleep(2)
+        return True
+
     # tree: lxml.html.HtmlElement
     def get_product_element_list(self, tree):
         return tree.xpath(self.scraper_type.xpath_product_element_list)  
@@ -58,10 +69,12 @@ class MyScraper:
         return MyScraper._get_first_string_element(element, self.scraper_type.xpath_product_special_price)        
 
     def get_product_regular_price(self, element):
+        '''
+        '''        
         return MyScraper._get_first_string_element(element, self.scraper_type.xpath_product_regular_price)        
 
     #element: tag.element
-    def get_product(self, element):    
+    def get_product(self, element):           
         product = Product()
         product.name = self.get_product_name(element)
         product.link = self.get_product_link(element)
@@ -74,25 +87,107 @@ class MyScraper:
         product.add_to_cart_label = self.get_product_add_to_cart_label(element)      
         return product     
 
-    def scrape(self):
-        product_data = [] 
-        url = self.scraper_type.base_url         
-        batch_timestamp = datetime.datetime.utcfromtimestamp(time.time()).strftime('%Y-%m-%dT%H:%M:%SZ')        
-        while url != "":
-            batch_info_object = {"batch_timestamp": batch_timestamp,                                
+    
+    def append_products_from_tree(self, tree, batch_info_object, product_data):
+        '''
+        Parses a lxml.etree._Element that holds a product list and appends the items into product_data         
+
+            Parameters:
+                    tree (lxml.etree._Element): Document holding the product list
+                    batch_info_object (dict): Constant values from batch that are repreated on each product item 
+                    product_data (dict[]): Array of the dictionary product representation
+
+            Returns:
+                    Mutates product_data state
+        '''
+        product_element_list = self.get_product_element_list(tree)
+        for product_element in product_element_list:   
+            product = self.get_product(product_element) 
+            row_object = dict(
+                            batch_info_object,
+                            **product.get_data_row())
+            product_data.append(row_object)       
+
+    def scrape(self):        
+        url = self.scraper_type.base_url       
+
+        product_data = []  
+        batch_timestamp = datetime.datetime.utcfromtimestamp(time.time()).strftime('%Y-%m-%dT%H:%M:%SZ')   
+        batch_info_object = {"batch_timestamp": batch_timestamp,                                
                                 "base_url": self.scraper_type.base_url,
                                 "site": utils.extract_domain_from_url(url),
                                 "url": url}
-            tree = html.fromstring(fetch.get_page_content(url, force_bottom_scroll=True))            
-            url = self.get_next_page_url(tree, url)
-            product_element_list = self.get_product_element_list(tree)
-            for product_element in product_element_list:   
-                product = self.get_product(product_element) 
-                row_object = dict(
-                                batch_info_object,
-                                **product.get_data_row())
-                product_data.append(row_object)             
+
+        if (self.scraper_type.load_list_type == scraper_type.LOAD_LIST_TYPE_SCROLL or 
+                self.scraper_type.next_page_type == scraper_type.NEXT_PAGE_TYPE_DOM_ACTION):
+            product_data = self.scrape_dynamic(url, batch_info_object)
+        else:
+            product_data = self.scrape_static(url, batch_info_object)
         return pd.DataFrame(product_data)      
+
+    def scrape_static(self, url, batch_info_object):
+        if (self.scraper_type.load_list_type == scraper_type.LOAD_LIST_TYPE_SCROLL or 
+                self.scraper_type.next_page_type == scraper_type.NEXT_PAGE_TYPE_DOM_ACTION):
+            raise Exception("Dynamic behavior not supported")        
+        product_data = []
+        while url != "":            
+            tree = html.fromstring(fetch.get_page_content(url))
+            #override url to reflect actual page
+            batch_info_object["url"] = url
+            self.append_products_from_tree(tree, batch_info_object, product_data)
+            ##TODO: extract next url from xpath or template
+            url = self.get_next_page_url(tree, url)        
+        return product_data
+    
+    def scrape_dynamic(self, url, batch_info_object):
+        '''
+        Lorem ipsim
+
+            Parameters:
+                    url (string): Constant values from batch that are repreated on each product item 
+                    batch_info_object (dict[]): Array of the dictionary product representation
+
+            Returns:
+                    Mutates product_data state
+        '''
+        driver = fetch.get_browser()
+        try:
+            product_data = []
+            html_content = ""
+            ## Load initial page
+            if self.scraper_type.load_list_type == scraper_type.LOAD_LIST_TYPE_SCROLL:
+                #driver.get(url);#fetch.scroll_to_bottom(driver);#html_content = driver.page_source
+                html_content = fetch.get_dynamic_page_content_bottom_scroll(url, driver)
+            else:
+                html_content = fetch.get_page_content(url)
+
+            while html_content != "":                
+                tree = html.fromstring(html_content)
+                #override url to reflect actual page
+                batch_info_object["url"] = url
+                # parse products into product_data                
+                self.append_products_from_tree(tree, batch_info_object, product_data)
+
+                # Load next page content
+                # that may or may not be through a DOM event over a dynamically loading page
+                html_content = ""
+                if self.scraper_type.next_page_type == scraper_type.NEXT_PAGE_TYPE_DOM_ACTION:
+                    if self.move_to_next_page_content(driver):
+                        if self.scraper_type.load_list_type == scraper_type.LOAD_LIST_TYPE_SCROLL:
+                            fetch.scroll_to_bottom(driver)
+                        html_content = driver.page_source
+                else:
+                    ##TODO: extract next url from xpath or template
+                    url = self.get_next_page_url(tree, url)
+                    if self.scraper_type.load_list_type == scraper_type.LOAD_LIST_TYPE_SCROLL:
+                        #driver.get(url);#fetch.scroll_to_bottom(driver);#html_content = driver.page_source
+                        html_content = fetch.get_dynamic_page_content_bottom_scroll(url, driver)
+                    else:
+                        html_content = fetch.get_page_content(url)
+        finally:
+            driver.close()
+        return product_data
+
        
 def scrape_site(scraper_type):
     scraper = MyScraper(scraper_type)
@@ -103,12 +198,15 @@ def scrape_site(scraper_type):
 
 
 def main():
-    # scrape_site(scraper_type.ScraperType.oxford("https://www.oxfordstore.pe/bicicletas.html"))
+    scrape_site(scraper_type.ScraperType.oxford("https://www.oxfordstore.pe/bicicletas.html"))
     # scrape_site(scraper_type.ScraperType.monark("https://www.monark.com.pe/categoria-producto/bicicletas/"))
     # scrape_site(scraper_type.ScraperType.specialized("https://www.specializedperu.com/catalog/category/view/s/bicicletas/id/467/"))
     # scrape_site(scraper_type.ScraperType.specialized("https://www.specializedperu.com/preventa.html"))
 
-    scrape_site(scraper_type.ScraperType.wong("https://www.wong.pe/deportes-y-outdoors/bicicletas"))
+    #scrape_site(scraper_type.ScraperType.wong("https://www.wong.pe/deportes-y-outdoors/bicicletas"))
+    # doesnt work scrape_site(scraper_type.ScraperType.juntoz("https://juntoz.com/categorias/deportes-aventura?categories=1172"))
+
+    #scrape_site(scraper_type.ScraperType.plazavea("https://www.plazavea.com.pe/deportes/bicicletas"))
     
 if __name__ == "__main__":
     main()
