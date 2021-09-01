@@ -1,10 +1,31 @@
 
+'''
+Types of page load for the product list
+STATIC: Page loads once in plain html
+SROLL: Page needs be scrolled to the bottom to load next batch of items
+'''
+LOAD_LIST_TYPE_STATIC = "STATIC"
+LOAD_LIST_TYPE_SCROLL = "SCROLL"
+
+'''
+NEXT_URL: A html tag holds the link to the next page
+PAGE_URL_TEMPLATE_ITERATOR: URL with a page number placeholder 
+DOM_ACTION: Renders next set of items in client side 
+'''
+NEXT_PAGE_TYPE_NEXT_URL = "NEXT_URL"
+NEXT_PAGE_TYPE_PAGE_URL_TEMPLATE_ITERATOR = "PAGE_URL_TEMPLATE_ITERATOR"
+NEXT_PAGE_TYPE_DOM_ACTION = "DOM_ACTION"
+
 class ScraperType:
     def __init__(self, name = "", base_url = ""):
         self.name = name
+        self.load_list_type = LOAD_LIST_TYPE_STATIC
+        self.next_page_type = NEXT_PAGE_TYPE_NEXT_URL
         self.base_url = base_url        
-        self.xpath_product_element_list = ""
+        self.next_page_url_template_iterator = ""
+        self.xpath_product_element_list = ""        
         self.xpath_next_page_url = ""
+        self.xpath_next_page_object = ""
         self.xpath_product_name = ""
         self.xpath_product_link = ""
         self.xpath_product_image_link = ""
@@ -71,6 +92,7 @@ class ScraperType:
     @classmethod
     def wong(cls, base_url):
         scraper_type = cls(name = "wong", base_url = base_url)
+        scraper_type.load_list_type = LOAD_LIST_TYPE_SCROLL
         scraper_type.xpath_product_element_list = '//*[contains(@class, "product-item product-item--")]'
         scraper_type.xpath_next_page_url = ''
         scraper_type.xpath_product_name = './/*[@class="product-item__name"]/text()'
@@ -87,6 +109,8 @@ class ScraperType:
     @classmethod
     def juntoz(cls, base_url):
         scraper_type = cls(name = "juntoz", base_url = base_url)
+        scraper_type.next_page_type = NEXT_PAGE_TYPE_PAGE_URL_TEMPLATE_ITERATOR
+        scraper_type.next_page_url_template_iterator = 'page=%d'
         scraper_type.xpath_product_element_list = '//*[@class = "catalog-products-body__product-wrapper"]'
         scraper_type.xpath_next_page_url = ''
         scraper_type.xpath_product_name = './/*[contains(@class, "catalog-products-body__product-name__title-hover")]/text()'
@@ -106,8 +130,11 @@ class ScraperType:
     @classmethod
     def plazavea(cls, base_url):
         scraper_type = cls(name = "plazavea", base_url = base_url)
+        scraper_type.load_list_type = LOAD_LIST_TYPE_SCROLL
+        scraper_type.next_page_type = NEXT_PAGE_TYPE_DOM_ACTION
         scraper_type.xpath_product_element_list = '//*[contains(@class, "Showcase Showcase")]'
         scraper_type.xpath_next_page_url = ''
+        scraper_type.xpath_next_page_object = '//span[@class = "pagination__item page-control next "]'  #click()
         scraper_type.xpath_product_name = './/*[@class = "Showcase__details__text"]/a/text()'
         
         #TBD
