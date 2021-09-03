@@ -14,7 +14,7 @@ def html_static_content_presale_page():
     
 @pytest.fixture
 def specialized_scraper_type():
-    return ScraperType.specialized("")
+    return ScraperType.create_scraper_type("specialized")
 
 @pytest.fixture
 def specialized_scraper(specialized_scraper_type):

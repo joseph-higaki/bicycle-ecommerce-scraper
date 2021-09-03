@@ -1,0 +1,122 @@
+global:
+  
+  # For static loading pages, checks page-cache before shooting actual request
+  # Useful for testing
+  use_cache: False
+  # scroll_to_bottom settings
+  initial_load_sleep: 1
+  after_scroll_sleep: 1
+  
+scraper_type:
+
+  oxford:
+    name: 'oxford'
+    base_urls:
+      - 'https://www.oxfordstore.pe/bicicletas.html'
+    load_list_type: 'STATIC'
+    next_page_type: 'NEXT_PAGE_TYPE_NEXT_URL_ALINK'
+    xpath_product_element_list: '//*[contains(@class, "product-content")]'
+    xpath_next_page_url: '//*[contains(@class, "next i-next")]/@href'
+    xpath_product_name: './/*[contains(@class, "product-name")]/a/text()'
+    xpath_product_link: './/*[contains(@class, "product-name")]/a/@href'
+    xpath_product_image_link: './/img/@src'
+    xpath_product_status_label: './/*[contains(@class, "product-label")]/span/text()'        
+    xpath_product_old_price: './/*[contains(@class, "old-price")]/span/text()'
+    xpath_product_special_price: './/*[contains(@class, "special-price")]/span/text()'
+    xpath_product_regular_price: './/*[contains(@class, "regular-price")]/span/text()'
+    xpath_product_discount_label: ''
+    xpath_product_add_to_cart_label: './/*[@class="btn btn-cart"]/@title'
+
+  monark:
+    name: 'monark'
+    base_urls:
+      - 'https://www.oxfordstore.pe/bicicletas.html'
+    load_list_type: 'STATIC'
+    next_page_type: 'NEXT_PAGE_TYPE_NEXT_URL_ALINK'
+    xpath_product_element_list: '//*[contains(@class, "owl-item")]'
+    xpath_next_page_url: '//*[contains(@class, "page-numbers current")]/ancestor::li/following-sibling::li[1]/a/@href'
+    xpath_product_name: './/*[contains(@class, "titulo")]/h2/text()'
+    xpath_product_link: './/*[contains(@class, "btn")]/@href'
+    xpath_product_image_link: './/*[contains(@class, "imagen")]//img/@src'
+    xpath_product_status_label: ''
+    xpath_product_old_price: './/*[contains(@class, "price-default")]/del/span/text()'
+    xpath_product_special_price: './/*[contains(@class, "price-default")]/ins/span/text()'
+    xpath_product_regular_price: './/*[contains(@class, "price-default")]/span/text()'
+    xpath_product_discount_label: './/*[contains(@class, "sale-perc")]/text()'
+    xpath_product_add_to_cart_label: './/*[contains(@class, "comprar")]/text()'
+
+  specialized:
+    name: 'specialized'
+    base_urls:
+      - 'https://www.specializedperu.com/catalog/category/view/s/bicicletas/id/467/'
+      - 'https://www.specializedperu.com/preventa.html'
+    load_list_type: 'STATIC'
+    next_page_type: 'NEXT_PAGE_TYPE_NEXT_URL_ALINK'
+    xpath_product_element_list: '//*[contains(@class, "item product product-item")]'
+    xpath_next_page_url: ''
+    xpath_product_name: './/*[contains(@class, "product name product-item-name text-center")]/a/text()'
+    xpath_product_link: './/*[contains(@class, "product name product-item-name text-center")]/a/@href'
+    xpath_product_image_link: './/*[contains(@class, "product-image-photo")]/@src'
+    xpath_product_status_label: ''
+    xpath_product_old_price: ''
+    xpath_product_special_price: ''
+    xpath_product_regular_price: './/*[contains(@class, "price-wrapper price-including-tax")]/span/text()'
+    xpath_product_discount_label: ''
+    xpath_product_add_to_cart_label: ''
+
+  wong:
+    name: 'wong'
+    base_urls:
+      - 'https://www.wong.pe/deportes-y-outdoors/bicicletas'
+    load_list_type: 'SCROLL'
+    next_page_type: 'NEXT_PAGE_TYPE_NEXT_URL_ALINK'
+    xpath_product_element_list: '//*[contains(@class, "product-item product-item--")]'
+    xpath_next_page_url: ''
+    xpath_product_name: './/*[@class="product-item__name"]/text()'
+    xpath_product_link: './/*[@class="product-item__name"]/@href'
+    xpath_product_image_link: './/*[@class="product-item__image-link"]/div/img/@src'
+    xpath_product_status_label: './/*[@class="product-prices__label--discount-label"]/text()'
+    xpath_product_old_price: './/*[@class="product-prices__price product-prices__price--former-price"]/*[@class="product-prices__value"]/text()'
+    xpath_product_special_price: './/*[@class="product-prices__price product-prices__price--better-price"]/*[@class="product-prices__value product-prices__value--best-price"]/text()'
+    xpath_product_regular_price: './/*[@class="product-prices__price product-prices__price--regular-price"]/*[@class="product-prices__value product-prices__value--best-price"]/text()'
+    xpath_product_discount_label: './/*[@class="flag discount-percent"]/text()'
+    xpath_product_add_to_cart_label: './/*[@class="product-add-to-cart__text"]/text()'
+
+  juntoz:
+    name: 'juntoz'
+    base_urls:
+      - 'https://juntoz.com/categorias/deportes-aventura?categories=1172'
+    load_list_type: 'SCROLL'
+    next_page_type: 'PAGE_URL_TEMPLATE_ITERATOR'
+    next_page_url_template_iterator: 'page=%d'
+    xpath_product_element_list: '//*[@class = "catalog-products-body__product-wrapper"]'
+    xpath_next_page_url: ''
+    xpath_product_name: './/*[contains(@class, "catalog-products-body__product-name__title-hover")]/text()'
+    xpath_product_link: './/*[contains(@class, "catalog-products-body__product-name__title-hover")]/@href'
+    xpath_product_image_link: './/*[@class = "img-responsive catalog-products-body__product-img-big"]/@src'
+    xpath_product_status_label: 'TBD'
+    xpath_product_old_price: './/*[@class = "ng-binding catalog-products-body__product-old-price"]/text()'
+    xpath_product_special_price: './/*[@class = "catalog-products-body__product-special-price ng-binding ng-scope"]/text()'
+    xpath_product_regular_price: './/*[@class = "ng-binding catalog-products-body__product-special-price"]/text()'
+    xpath_product_discount_label: './/*[@class = "catalog-products-body__product-prices__discount ng-binding ng-scope"]/text()'
+    xpath_product_add_to_cart_label: ''
+
+  plazavea:
+    name: 'plazavea'
+    base_urls:
+      - 'https://www.plazavea.com.pe/deportes/bicicletas'
+    load_list_type: 'SCROLL'
+    next_page_type: 'DOM_ACTION'    
+    next_page_url_template_iterator: ''
+    xpath_next_page_object: '//span[@class = "pagination__item page-control next "]'
+    xpath_product_element_list: '//*[contains(@class, "Showcase Showcase")]'
+    xpath_next_page_url: ''
+    xpath_product_name: './/*[@class = "Showcase__details__text"]/a/text()'
+    xpath_product_link: ''
+    xpath_product_image_link: ''
+    xpath_product_status_label: ''
+    xpath_product_old_price: ''
+    xpath_product_special_price: ''
+    xpath_product_regular_price: ''
+    xpath_product_discount_label: ''
+    xpath_product_add_to_cart_label: ''

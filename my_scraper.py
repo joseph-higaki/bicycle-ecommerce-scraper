@@ -7,6 +7,7 @@ from product import Product
 import utils
 import os.path
 import scraper_type
+import config
 
 class MyScraper:
     def __init__(self, scraper_type):
@@ -34,11 +35,15 @@ class MyScraper:
         Used in DOM_ACTION next page type
         It executes the event on the element that loads the next set of items
         '''
-        next_object = driver.find_element_by_xpath(self.scraper_type.xpath_next_page_object)
-        if next_object:
+        next_object = None
+        try:
+            next_object = driver.find_element_by_xpath(self.scraper_type.xpath_next_page_object)
+        except:
+            pass
+        if next_object is not None:
             next_object.click() 
         time.sleep(2)
-        return True
+        return False
 
     # tree: lxml.html.HtmlElement
     def get_product_element_list(self, tree):
@@ -105,27 +110,26 @@ class MyScraper:
             product = self.get_product(product_element) 
             row_object = dict(
                             batch_info_object,
-                            **product.get_data_row())
+                            **vars(product))
             product_data.append(row_object)       
 
     def scrape(self):        
-        url = self.scraper_type.base_url       
+        product_data = []
+        for url in self.scraper_type.base_urls:        
+            batch_timestamp = datetime.datetime.utcfromtimestamp(time.time()).strftime('%Y-%m-%dT%H:%M:%SZ')   
+            batch_info_object = {"batch_timestamp": batch_timestamp,                                
+                                    "base_url": url,
+                                    "site": utils.extract_domain_from_url(url),
+                                    "url": url}
 
-        product_data = []  
-        batch_timestamp = datetime.datetime.utcfromtimestamp(time.time()).strftime('%Y-%m-%dT%H:%M:%SZ')   
-        batch_info_object = {"batch_timestamp": batch_timestamp,                                
-                                "base_url": self.scraper_type.base_url,
-                                "site": utils.extract_domain_from_url(url),
-                                "url": url}
-
-        if (self.scraper_type.load_list_type == scraper_type.LOAD_LIST_TYPE_SCROLL or 
-                self.scraper_type.next_page_type == scraper_type.NEXT_PAGE_TYPE_DOM_ACTION):
-            product_data = self.scrape_dynamic(url, batch_info_object)
-        else:
-            product_data = self.scrape_static(url, batch_info_object)
+            if (self.scraper_type.load_list_type == scraper_type.LOAD_LIST_TYPE_SCROLL or 
+                    self.scraper_type.next_page_type == scraper_type.NEXT_PAGE_TYPE_DOM_ACTION):
+                product_data.extend(self.scrape_dynamic_list(url, batch_info_object))
+            else:
+                product_data.extend(self.scrape_static_list(url, batch_info_object))
         return pd.DataFrame(product_data)      
 
-    def scrape_static(self, url, batch_info_object):
+    def scrape_static_list(self, url, batch_info_object):
         if (self.scraper_type.load_list_type == scraper_type.LOAD_LIST_TYPE_SCROLL or 
                 self.scraper_type.next_page_type == scraper_type.NEXT_PAGE_TYPE_DOM_ACTION):
             raise Exception("Dynamic behavior not supported")        
@@ -139,7 +143,7 @@ class MyScraper:
             url = self.get_next_page_url(tree, url)        
         return product_data
     
-    def scrape_dynamic(self, url, batch_info_object):
+    def scrape_dynamic_list(self, url, batch_info_object):
         '''
         Lorem ipsim
 
@@ -179,11 +183,12 @@ class MyScraper:
                 else:
                     ##TODO: extract next url from xpath or template
                     url = self.get_next_page_url(tree, url)
-                    if self.scraper_type.load_list_type == scraper_type.LOAD_LIST_TYPE_SCROLL:
-                        #driver.get(url);#fetch.scroll_to_bottom(driver);#html_content = driver.page_source
-                        html_content = fetch.get_dynamic_page_content_bottom_scroll(url, driver)
-                    else:
-                        html_content = fetch.get_page_content(url)
+                    if url != "":
+                        if self.scraper_type.load_list_type == scraper_type.LOAD_LIST_TYPE_SCROLL:
+                            #driver.get(url);#fetch.scroll_to_bottom(driver);#html_content = driver.page_source
+                            html_content = fetch.get_dynamic_page_content_bottom_scroll(url, driver)
+                        else:
+                            html_content = fetch.get_page_content(url)
         finally:
             driver.close()
         return product_data
@@ -194,11 +199,16 @@ def scrape_site(scraper_type):
     df = scraper.scrape()        
     output_file = "output/ecommerce-bicycles.csv"
     include_header = not os.path.isfile(output_file)
-    df.to_csv(output_file, mode='a', header = include_header)
+    df.to_csv(output_file, mode='a', header = include_header, index=True, index_label="batch_site_index")
 
 
 def main():
-    scrape_site(scraper_type.ScraperType.oxford("https://www.oxfordstore.pe/bicicletas.html"))
+    cfg = config.Config() # I need a singleton
+    for scraper_type_name in cfg.scraper_types():
+        scrape_site(scraper_type.ScraperType.create_scraper_type(scraper_type_name))
+    #scrape_site(scraper_type.ScraperType.create_scraper_type("oxford"))
+    #scrape_site(scraper_type.ScraperType.create_scraper_type("juntoz"))
+    #scrape_site(scraper_type.ScraperType.oxford("https://www.oxfordstore.pe/bicicletas.html"))
     # scrape_site(scraper_type.ScraperType.monark("https://www.monark.com.pe/categoria-producto/bicicletas/"))
     # scrape_site(scraper_type.ScraperType.specialized("https://www.specializedperu.com/catalog/category/view/s/bicicletas/id/467/"))
     # scrape_site(scraper_type.ScraperType.specialized("https://www.specializedperu.com/preventa.html"))
