@@ -20,8 +20,8 @@ def html_static_content_last_page():
     return open("tests/test_data/https___www_oxfordstore_pe_bicicletas_html_p_14","r", encoding="utf-8").read()
 
 @pytest.fixture
-def oxford_scraper_type():
-    return ScraperType.oxford("")
+def oxford_scraper_type():    
+    return ScraperType.create_scraper_type("oxford")
 
 @pytest.fixture
 def oxford_scraper(oxford_scraper_type):
