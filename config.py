@@ -8,7 +8,7 @@ class Config:
     def __init__(self):
         #self._cfg = Config.read_file("config.yaml")
         with open("config.yaml", "r", encoding="utf-8") as ymlfile:  
-            self._cfg = yaml.load(ymlfile)
+            self._cfg = yaml.load(ymlfile, Loader=yaml.FullLoader)
     
     def scraper_types(self):    
         return self._cfg['scraper_type']

@@ -9,8 +9,8 @@ global:
   
 scraper_type:
 
-  oxford:
-    name: 'oxford'
+  oxfordstore.pe:
+    name: 'oxfordstore.pe'
     base_urls:
       - 'https://www.oxfordstore.pe/bicicletas.html'
     load_list_type: 'STATIC'
@@ -27,10 +27,10 @@ scraper_type:
     xpath_product_discount_label: ''
     xpath_product_add_to_cart_label: './/*[@class="btn btn-cart"]/@title'
 
-  monark:
-    name: 'monark'
+  monark.com.pe:
+    name: 'monark.com.pe'
     base_urls:
-      - 'https://www.oxfordstore.pe/bicicletas.html'
+      - 'https://www.monark.com.pe/categoria-producto/bicicletas/'
     load_list_type: 'STATIC'
     next_page_type: 'NEXT_PAGE_TYPE_NEXT_URL_ALINK'
     xpath_product_element_list: '//*[contains(@class, "owl-item")]'
@@ -45,8 +45,8 @@ scraper_type:
     xpath_product_discount_label: './/*[contains(@class, "sale-perc")]/text()'
     xpath_product_add_to_cart_label: './/*[contains(@class, "comprar")]/text()'
 
-  specialized:
-    name: 'specialized'
+  specializedperu.com:
+    name: 'specializedperu.com'
     base_urls:
       - 'https://www.specializedperu.com/catalog/category/view/s/bicicletas/id/467/'
       - 'https://www.specializedperu.com/preventa.html'
@@ -64,8 +64,8 @@ scraper_type:
     xpath_product_discount_label: ''
     xpath_product_add_to_cart_label: ''
 
-  wong:
-    name: 'wong'
+  wong.pe:
+    name: 'wong.pe'
     base_urls:
       - 'https://www.wong.pe/deportes-y-outdoors/bicicletas'
     load_list_type: 'SCROLL'
@@ -82,8 +82,8 @@ scraper_type:
     xpath_product_discount_label: './/*[@class="flag discount-percent"]/text()'
     xpath_product_add_to_cart_label: './/*[@class="product-add-to-cart__text"]/text()'
 
-  juntoz:
-    name: 'juntoz'
+  juntoz.com:
+    name: 'juntoz.com'
     base_urls:
       - 'https://juntoz.com/categorias/deportes-aventura?categories=1172'
     load_list_type: 'SCROLL'
@@ -118,5 +118,23 @@ scraper_type:
     xpath_product_old_price: ''
     xpath_product_special_price: ''
     xpath_product_regular_price: ''
+    xpath_product_discount_label: ''
+    xpath_product_add_to_cart_label: ''
+
+  sparta.pe:
+    name: 'sparta.pe'
+    base_urls:
+      - 'https://sparta.pe/c/ciclismo/'
+    load_list_type: 'STATIC'
+    next_page_type: 'NEXT_PAGE_TYPE_NEXT_URL_ALINK'
+    xpath_product_element_list: '//*[contains(@class, "product type-product post")]'
+    xpath_next_page_url: '//a[@class = "next page-numbers"]/@href'
+    xpath_product_name: './/*[@class = "woocommerce-loop-product__title"]/a/text()'
+    xpath_product_link: './/*[@class = "woocommerce-loop-product__title"]/a/@href'
+    xpath_product_image_link: './/img[@class = "attachment-woocommerce_thumbnail size-woocommerce_thumbnail"]/@src'
+    xpath_product_status_label: ''
+    xpath_product_old_price: ''
+    xpath_product_special_price: ''
+    xpath_product_regular_price: './/*[@class = "woocommerce-Price-amount amount"]/bdi/text()'
     xpath_product_discount_label: ''
     xpath_product_add_to_cart_label: ''
