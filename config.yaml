@@ -4,7 +4,7 @@ global:
   # Useful for testing
   use_cache: False
   # scroll_to_bottom settings
-  initial_load_sleep: 1
+  initial_load_sleep: 2
   after_scroll_sleep: 1
   
 scraper_type:
@@ -137,4 +137,22 @@ scraper_type:
     xpath_product_special_price: ''
     xpath_product_regular_price: './/*[@class = "woocommerce-Price-amount amount"]/bdi/text()'
     xpath_product_discount_label: ''
+    xpath_product_add_to_cart_label: ''
+
+  ripley.com.pe:
+    name: 'ripley.com.pe'
+    base_urls:
+      - 'https://simple.ripley.com.pe/deporte/bicicletas/ver-todo-bicicletas'
+    load_list_type: 'STATIC'
+    next_page_type: 'NEXT_PAGE_TYPE_NEXT_URL_ALINK'
+    xpath_product_element_list: '//div[contains(@class,"catalog-product-item catalog-product-item__container")]'
+    xpath_next_page_url: '//*[@class="catalog-page__footer-pagination"]/*//span[text()="»"]/ancestor::a[not(@class)]/@href'
+    xpath_product_name: './/div[@class="catalog-product-details__name"]/text()'
+    xpath_product_link: './/a[@class="catalog-product-item catalog-product-item__container undefined"]/@href'
+    xpath_product_image_link: './/div[@class="images-preview-item is-active"]/img/@data-src' ## Should try with src first
+    xpath_product_status_label: './/*[@class="catalog-product-details__tag"]/text()'
+    xpath_product_old_price: './/*[@title="Precio Normal"]/text()'
+    xpath_product_special_price: './/*[@title="Precio Internet"]/text()'
+    xpath_product_regular_price: ''
+    xpath_product_discount_label: './/*[@class="catalog-product-details__discount-tag"]/text()'
     xpath_product_add_to_cart_label: ''
