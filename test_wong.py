@@ -10,7 +10,7 @@ def html_static_content_first_page():
 
 @pytest.fixture
 def wong_scraper_type():
-    return ScraperType.create_scraper_type("wong")
+    return ScraperType.create_scraper_type("wong.pe")
 
 @pytest.fixture
 def wong_scraper(wong_scraper_type):

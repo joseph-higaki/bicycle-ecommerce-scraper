@@ -17,7 +17,7 @@ def html_static_content_last_page():
 
 @pytest.fixture
 def monark_scraper_type():
-    return ScraperType.create_scraper_type("monark")
+    return ScraperType.create_scraper_type("monark.com.pe")
 
 @pytest.fixture
 def monark_scraper(monark_scraper_type):

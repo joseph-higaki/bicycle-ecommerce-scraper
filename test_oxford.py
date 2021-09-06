@@ -21,7 +21,7 @@ def html_static_content_last_page():
 
 @pytest.fixture
 def oxford_scraper_type():    
-    return ScraperType.create_scraper_type("oxford")
+    return ScraperType.create_scraper_type("oxfordstore.pe")
 
 @pytest.fixture
 def oxford_scraper(oxford_scraper_type):
