@@ -156,3 +156,23 @@ scraper_type:
     xpath_product_regular_price: ''
     xpath_product_discount_label: './/*[@class="catalog-product-details__discount-tag"]/text()'
     xpath_product_add_to_cart_label: ''
+  
+  linio.com.pe:
+    name: 'linio.com.pe'
+    base_urls:
+      - 'https://www.linio.com.pe/c/ciclismo/bicicletas'
+    load_list_type: 'STATIC'
+    next_page_type: 'NEXT_PAGE_TYPE_NEXT_URL_ALINK'
+    xpath_product_element_list: '//div[contains(@class, "catalogue-product row ")]'
+    xpath_next_page_url: '//*[contains(@class,"page-item  active")]/following-sibling::li[1]/a/@href'
+    xpath_product_name: './/span[@class="title-section"]/text()'
+    xpath_product_link: './a[1]/@href'
+    xpath_product_image_link: './/div[@class="image-container"]/figure/picture/img/@src'
+    xpath_product_status_label: '//div[@class="top-pills"]/*/text()'
+    #xpath_product_status_label: '//*[@class="product-unavailable"]/span/text()' # secondd path
+
+    xpath_product_old_price: './/span[@class="original-price"]/text()'
+    xpath_product_special_price: './/span[@class="price-main-md"]/text()'
+    xpath_product_regular_price: ''
+    xpath_product_discount_label: './/span[@class="discount"]/text()'
+    xpath_product_add_to_cart_label: ''
