@@ -203,10 +203,10 @@ def scrape_site(scraper_type):
 
 
 def main():
-#    cfg = config.Config() # I need a singleton
-#    for scraper_type_name in cfg.scraper_types():
-#        scrape_site(scraper_type.ScraperType.create_scraper_type(scraper_type_name))
-    scrape_site(scraper_type.ScraperType.create_scraper_type("ripley.com.pe"))
+    cfg = config.Config() # I need a singleton
+    for scraper_type_name in cfg.scraper_types():
+        scrape_site(scraper_type.ScraperType.create_scraper_type(scraper_type_name))
+    #scrape_site(scraper_type.ScraperType.create_scraper_type("linio.com.pe"))
     #scrape_site(scraper_type.ScraperType.create_scraper_type("juntoz"))
     #scrape_site(scraper_type.ScraperType.oxford("https://www.oxfordstore.pe/bicicletas.html"))
     # scrape_site(scraper_type.ScraperType.monark("https://www.monark.com.pe/categoria-producto/bicicletas/"))
